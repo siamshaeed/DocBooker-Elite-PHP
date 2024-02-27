@@ -18,8 +18,10 @@ class Category extends Database {
         return $this->conn->query($sql);
     }
 
-    public function getCategoryById() {
-
+    public function getCategoryById($categoryId) {
+        $sql    = "SELECT * FROM categories WHERE category_id = $categoryId";
+        $result = $this->conn->query($sql);
+        return $result->fetch_assoc();
     }
 
  }
