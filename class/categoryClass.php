@@ -2,7 +2,7 @@
 require_once '../class/db_connect.php';
 
 class Category extends Database {
-   public function getAllCategories() {
+   public function getAllCategories() {     //show category
        $sql = "SELECT * FROM categories";
        $result = $this->conn->query($sql);
 
@@ -12,5 +12,10 @@ class Category extends Database {
            return array();
        }
    }
+
+    public function addCategory($categoryName) {        // Add Category
+        $sql = "INSERT INTO categories (category_name) VALUES ('$categoryName')";
+        return $this->conn->query($sql);
+    }
 
  }

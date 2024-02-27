@@ -4,6 +4,13 @@ include_once '../class/categoryClass.php';
 $category = new  Category();
 $categories = $category->getAllCategories();
 
+// Add categories
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $categoryName = $_POST['category_name'];
+
+    $categoryObj = new Category();
+    $categoryObj->addCategory($categoryName);
+}
 ?>
 
 <!doctype html>
@@ -51,11 +58,13 @@ $categories = $category->getAllCategories();
 <div class="container">
     <div class="row">
         <div class="col-md-6">
+            <form action="" method="post">
             <div class="mb-3">
                 <label for="category_name" class="form-label"><b>Category Name</b></label>
-                <input type="text" class="form-control" id="category_name" placeholder="Enter Category Name">
+                <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Enter Category Name">
             </div>
             <button type="submit" class="btn btn-outline-secondary">Save</button>
+            </form>
         </div>
         <div class="col-md-6"><b>Category List :</b>
             <table class="table table-striped table-hover">
