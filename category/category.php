@@ -1,5 +1,5 @@
 <?php
-require_once 'class/categoryClass.php';
+include_once '../class/categoryClass.php';
 // Display categories
 $category = new  Category();
 $categories = $category->getAllCategories();
@@ -8,6 +8,7 @@ $categories = $category->getAllCategories();
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,17 +67,15 @@ $categories = $category->getAllCategories();
                 </tr>
                 </thead>
                 <tbody class="table-group-divider">
+                <?php $serial = '1'; ?>
+                <?php foreach ($categories as $categori): ?>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>News</td>
+                    <th scope="row"><?php echo $serial ?></th>
+                    <td><?php echo $categori['category_name'] ?></td>
                     <td>Active</td>
                 </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>News</td>
-                    <td>Active</td>
-                </tr>
-
+                <?php $serial++ ?>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

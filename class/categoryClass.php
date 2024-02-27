@@ -1,5 +1,5 @@
 <?php
-require_once 'class/db_connect.php';
+require_once '../class/db_connect.php';
 
 class Category extends Database {
    public function getAllCategories() {
