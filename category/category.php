@@ -5,11 +5,14 @@ $category = new  Category();
 $categories = $category->getAllCategories();
 
 // Add categories
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (!empty($_POST['category_name'])) {
     $categoryName = $_POST['category_name'];
 
     $categoryObj = new Category();
     $categoryObj->addCategory($categoryName);
+
+    header("Location: category.php");
+    exit();
 }
 ?>
 
@@ -66,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn btn-outline-secondary">Save</button>
             </form>
         </div>
+
         <div class="col-md-6"><b>Category List :</b>
             <table class="table table-striped table-hover">
                 <thead>
@@ -73,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <th scope="col">S/L</th>
                     <th scope="col">Category</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -82,6 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <th scope="row"><?php echo $serial ?></th>
                     <td><?php echo $categori['category_name'] ?></td>
                     <td>Active</td>
+                    <td>
+                        <a href="edit_category.php?id=<?php echo $categori['category_id']?>">Edit</a> |
+                        <a href="">Delete</a>
+                    </td>
                 </tr>
                 <?php $serial++ ?>
                 <?php endforeach; ?>

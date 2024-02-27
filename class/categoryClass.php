@@ -18,4 +18,8 @@ class Category extends Database {
         return $this->conn->query($sql);
     }
 
+    public function getCategoryById() {
+
+    }
+
  }
