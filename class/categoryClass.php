@@ -24,4 +24,10 @@ class Category extends Database {
         return $result->fetch_assoc();
     }
 
+    public function updateCategory($categoryId, $categoryName) {
+       $sql = "UPDATE categories SET category_name = '$categoryName' WHERE category_id = '$categoryId'";
+       return $this->conn->query($sql);
+    }
+
+
  }

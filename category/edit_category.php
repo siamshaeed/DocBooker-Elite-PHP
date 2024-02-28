@@ -6,8 +6,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 
     $categoryObj = new Category();
     $category    = $categoryObj->getCategoryById($categoryId);
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $categoryId = $_POST['category_id'];
+    $categoryName = $_POST['category_name'];
+
+    $categoryObj    = new Category();
+    $categoryObj->updateCategory($categoryId, $categoryName);
+
+    header('Location: category.php');
+    exit();
 }
-//var_dump($category);
+
 ?>
 
 <!doctype html>
@@ -24,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
      <div class="row">
          <form action="" method="post">
              <div class="mb-3">
+                 <input type="hidden" name="category_id" value="<?php echo $category['category_id'] ?>">
                  <label for="category_name" class="form-label"><b>Category Name</b></label>
                  <input type="text" class="form-control" name="category_name" id="category_name" value="<?php echo $category['category_name'] ?>">
              </div>
