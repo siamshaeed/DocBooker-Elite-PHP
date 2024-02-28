@@ -14,6 +14,17 @@ if (!empty($_POST['category_name'])) {
     header("Location: category.php");
     exit();
 }
+
+// Delete Category
+if (!empty($_POST['category_id']))  {
+    $categoryId = $_POST['category_id'];
+
+    $categoryObj    = new Category();
+    $categoryObj->deleteCategory($categoryId);
+
+    header("Location: category.php");
+    exit();
+}
 ?>
 
 <!doctype html>
@@ -72,14 +83,17 @@ if (!empty($_POST['category_name'])) {
                 </thead>
                 <tbody class="table-group-divider">
                 <?php $serial = '1'; ?>
-                <?php foreach ($categories as $categori): ?>
+                <?php foreach ($categories as $category): ?>
                 <tr>
                     <th scope="row"><?php echo $serial ?></th>
-                    <td><?php echo $categori['category_name'] ?></td>
+                    <td><?php echo $category['category_name'] ?></td>
                     <td>Active</td>
                     <td>
-                        <a href="edit_category.php?id=<?php echo $categori['category_id']?>">Edit</a> |
-                        <a href="">Delete</a>
+                        <a href="edit_category.php?id=<?php echo $category['category_id']?>">Edit</a> |
+                        <form action="" method="post">
+                            <input type="hidden" name="category_id" value="<?php echo $category['category_id']?>">
+                            <button type="submit">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 <?php $serial++ ?>
