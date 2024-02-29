@@ -99,15 +99,17 @@
                 </tr>
                 </thead>
                 <tbody class="table-group-divider">
+                <?php $serial = 1; ?>
                 <?php foreach ($posts as $post): ?>
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row"><?php echo $serial?></th>
                         <td><?php echo $post['title'] ?></td>
                         <td><?php echo $post['content'] ?></td>
                         <td><?php echo $post['category_name'] ?></td>
                         <td><?php echo $post['image_url'] ?></td>
-                        <td></td>
+                        <td>Edit | Delete</td>
                     </tr>
+                <?php $serial++ ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>
