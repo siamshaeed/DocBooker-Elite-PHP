@@ -12,5 +12,19 @@ class Post extends Database {
         return $this->conn->query($sql);
     }
 
+    public function getAllPosts() {
+        $sql = "SELECT posts.*, categories.category_name 
+                FROM posts 
+                LEFT JOIN categories ON posts.category_id = categories.category_id";
+        $result = $this->conn->query($sql);
+
+        $posts = [];
+        while ($row = $result->fetch_assoc()) {
+            $posts[] = $row;
+        }
+
+        return $posts;
+    }
+
 
 }

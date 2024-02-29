@@ -6,6 +6,7 @@
     $categoryObj = new Category();
     $categories = $categoryObj->getAllCategories();
 
+    // store post
     if (!empty($_POST['title'])) {
        $title = $_POST['title'];
        $content = $_POST['content'];
@@ -18,6 +19,10 @@
         header("Location: post.php");
         exit();
     }
+
+    // show post list
+    $postObj = new Post();
+    $posts = $postObj->getAllPosts();
 ?>
 <!doctype html>
 <html lang="en">
@@ -67,6 +72,7 @@
                 <div class="mb-3">
                     <label for="image_url" class="form-label"><b>Category</b></label>
                     <select class="form-select" aria-label="Default select example" name="category_id" id="category_id">
+                        <option value="0" selected>Select Cetegory</option>
                         <?php foreach ($categories as $category): ?>
                             <option value="<?php echo $category['category_id']?>"><?php echo $category['category_name']?></option>
                         <?php endforeach; ?>
@@ -80,22 +86,29 @@
             </form>
         </div>
 
-        <div class="col-md-8"><b>Category List :</b>
+        <div class="col-md-8"><b>Post List :</b>
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
                     <th scope="col">S/L</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Content</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody class="table-group-divider">
+                <?php foreach ($posts as $post): ?>
                     <tr>
                         <th scope="row">1</th>
-                        <td>name</td>
-                        <td>Active</td>
+                        <td><?php echo $post['title'] ?></td>
+                        <td><?php echo $post['content'] ?></td>
+                        <td><?php echo $post['category_name'] ?></td>
+                        <td><?php echo $post['image_url'] ?></td>
+                        <td></td>
                     </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
