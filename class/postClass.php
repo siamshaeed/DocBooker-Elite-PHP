@@ -26,5 +26,11 @@ class Post extends Database {
         return $posts;
     }
 
+    public function getPostById($postId) {
+        $sql = "SELECT * FROM posts WHERE post_id = $postId";
+        $result = $this->conn->query($sql);
+        return $result->fetch_assoc();
+    }
+
 
 }

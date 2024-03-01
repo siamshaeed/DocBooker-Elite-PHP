@@ -1,28 +1,16 @@
 <?php
-    require_once '../class/categoryClass.php';
-    require_once '../class/postClass.php';
+require_once '../class/postClass.php';
 
-    // show category list
-    $categoryObj = new Category();
-    $categories = $categoryObj->getAllCategories();
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
+    $postId = $_GET['id'];
 
-    // store post
-    if (!empty($_POST['title'])) {
-       $title = $_POST['title'];
-       $content = $_POST['content'];
-       $category_id = $_POST['category_id'];
-       $image = $_POST['image_url'];
-
-       $postObj = new Post();
-       $postObj->addPost($title, $content, $category_id, $image);
-
-        header("Location: post.php");
-        exit();
-    }
-
-    // show post list
     $postObj = new Post();
-    $posts = $postObj->getAllPosts();
+    $posts = $postObj->getPostById($postId);
+
+    var_dump($posts);
+}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -59,11 +47,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h4>Post Create</h4>
+            <h4>Post Edit</h4>
             <form action="" method="post">
                 <div class="mb-3">
                     <label for="title" class="form-label"><b>Title</b></label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="Enter Post title">
+                    <input type="text" class="form-control" name="title" value="" id="title" placeholder="Enter Post title">
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label"><b>Content</b></label> <br>
@@ -86,37 +74,6 @@
             </form>
         </div>
 
-        <div class="col-md-8"><b>Post List :</b>
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">S/L</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Content</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Action</th>
-                </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                <?php $serial = 1; ?>
-                <?php foreach ($posts as $post): ?>
-                    <tr>
-                        <th scope="row"><?php echo $serial?></th>
-                        <td><?php echo $post['title'] ?></td>
-                        <td><?php echo $post['content'] ?></td>
-                        <td><?php echo $post['category_name'] ?></td>
-                        <td><?php echo $post['image_url'] ?></td>
-                        <td>
-                            <a href=edit_post.php?id=<?php echo $post['post_id'] ?>>Edit</a> |
-                            <a href="">Delete</a>
-                        </td>
-                    </tr>
-                <?php $serial++ ?>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>
 
