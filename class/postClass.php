@@ -37,5 +37,10 @@ class Post extends Database {
         return $this->conn->query($sql);
     }
 
+    public function deletePost($postId) {
+        $sql = "DELETE FROM posts WHERE post_id = '$postId'";
+        return $this->conn->query($sql);
+    }
+
 
 }

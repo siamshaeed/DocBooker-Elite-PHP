@@ -23,6 +23,19 @@
     // show post list
     $postObj = new Post();
     $posts = $postObj->getAllPosts();
+
+    // Delete post
+    if (isset($_POST['delete_post'])){
+        $postId = $_POST['delete_post'];
+
+        $postObj = new Post();
+        $postObj->deletePost($postId);
+
+        header('Location:post.php');
+        exit();
+    }
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -109,7 +122,10 @@
                         <td><?php echo $post['image_url'] ?></td>
                         <td>
                             <a href=edit_post.php?id=<?php echo $post['post_id'] ?>>Edit</a> |
-                            <a href="">Delete</a>
+                            <form action="" method="post">
+                                <input type="hidden" name="delete_post" value="<?php echo $post['post_id'] ?>">
+                                <button type="submit">Button</button>
+                            </form>
                         </td>
                     </tr>
                 <?php $serial++ ?>
