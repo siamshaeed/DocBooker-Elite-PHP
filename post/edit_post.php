@@ -10,6 +10,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 
     $categoryObj = new Category();
     $categories = $categoryObj->getAllCategories();
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $postId = $_POST['post_id'];
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $category_id = $_POST['category_id'];
+    $image = $_POST['image_url'];
+
+    $postObj = new Post();
+    $postObj->updatePost($postId, $title, $content, $category_id, $image);
+
+    header('Location:post.php');
+    exit();
+} else {
+    header('Location:post.php');
+    exit();
 }
 
 ?>
@@ -51,6 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
             <h4>Post Edit</h4>
             <form action="" method="post">
                 <div class="mb-3">
+                    <input type="hidden" name="post_id" value="<?php echo $post['post_id'] ?>">
+
                     <label for="title" class="form-label"><b>Title</b></label>
                     <input type="text" class="form-control" name="title"  id="title" value="<?= $post['title'] ?>">
                 </div>

@@ -32,5 +32,10 @@ class Post extends Database {
         return $result->fetch_assoc();
     }
 
+    public function updatePost($postId, $title, $content, $category_id, $image) {
+        $sql = "UPDATE posts SET title = '$title', content = '$content', category_id = '$category_id', image_url = '$image' WHERE post_id = '$postId'";
+        return $this->conn->query($sql);
+    }
+
 
 }
