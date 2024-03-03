@@ -61,50 +61,78 @@ if (!empty($_POST['category_id']))  {
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <form action="" method="post">
-            <div class="mb-3">
-                <label for="category_name" class="form-label"><b>Category Name</b></label>
-                <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Enter Category Name">
+        <div class="col-md-12">
+            <div class="alert alert-primary" role="alert">
+              <h3 class="text-center">Category</h3>
             </div>
-            <button type="submit" class="btn btn-outline-secondary">Save</button>
-            </form>
-        </div>
-
-        <div class="col-md-6"><b>Category List :</b>
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">S/L</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
-                </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                <?php $serial = '1'; ?>
-                <?php foreach ($categories as $category): ?>
-                <tr>
-                    <th scope="row"><?php echo $serial ?></th>
-                    <td><?php echo $category['category_name'] ?></td>
-                    <td>Active</td>
-                    <td>
-                        <a href="edit_category.php?id=<?php echo $category['category_id']?>">Edit</a> |
-                        <form action="" method="post">
-                            <input type="hidden" name="category_id" value="<?php echo $category['category_id']?>">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-                <?php $serial++ ?>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
         </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <div class="row">
+        <div class="col-md-12"
+        <div><a href="../post/post.php" class="btn btn-secondary ">Post -></a></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mt-3">
+                <div class="card-header">
+                    Category Create
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        <div class="mb-3">
+                            <label for="category_name" class="form-label">Category Name</label>
+                            <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Enter Category Name">
+                        </div>
+                        <button type="submit" class="btn btn-outline-secondary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mt-3">
+                <div class="card-header">
+                    Category List
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr class="text-center">
+                            <th scope="col">S/L</th>
+                            <th scope="col">Category</th>
+                            <th scope="col" title="Total Post this category">Num Of Post</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        <?php $serial = '1'; ?>
+                        <?php foreach ($categories as $category): ?>
+                            <tr class="text-center">
+                                <td scope="row"><?php echo $serial ?></td>
+                                <td><?php echo $category['category_name'] ?></td>
+                                <td>5</td>
+                                <td>Active</td>
+                                <td>
+                                    <a href="edit_category.php?id=<?php echo $category['category_id']?>" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="" method="post" style="display: inline;">
+                                        <input type="hidden" name="category_id" value="<?php echo $category['category_id']?>">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php $serial++ ?>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 </body>
 </html>
