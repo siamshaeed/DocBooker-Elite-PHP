@@ -59,7 +59,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Post</a>
+                    <a class="nav-link" href="../post/post.php">Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../category/category.php">Category</a>
