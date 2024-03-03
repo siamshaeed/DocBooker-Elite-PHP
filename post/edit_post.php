@@ -62,36 +62,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <h4>Post Edit</h4>
-            <form action="" method="post">
-                <div class="mb-3">
-                    <input type="hidden" name="post_id" value="<?php echo $post['post_id'] ?>">
+        <div class="col-md-12">
+            <div class="alert alert-primary" role="alert">
+                <h3 class="text-center">Post</h3>
+            </div>
+        </div>
+    </div>
 
-                    <label for="title" class="form-label"><b>Title</b></label>
-                    <input type="text" class="form-control" name="title"  id="title" value="<?= $post['title'] ?>">
+    <div class="row">
+        <div class="col-md-12">
+            <div><a href="../post/post.php" class="btn btn-secondary ">Post -></a></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    Edit Post
                 </div>
-                <div class="mb-3">
-                    <label for="content" class="form-label"><b>Content</b></label> <br>
-                    <textarea name="content" id="content" cols="37" rows="2"><?= $post['content'] ?></textarea>
+                <div class="card-body">
+                    <form action="" method="post">
+                        <div class="mb-3">
+                            <input type="hidden" name="post_id" value="<?php echo $post['post_id'] ?>">
+
+                            <label for="title" class="form-label"><b>Title</b></label>
+                            <input type="text" class="form-control" name="title"  id="title" value="<?= $post['title'] ?>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="content" class="form-label"><b>Content</b></label> <br>
+                            <textarea  class="form-control" name="content" id="content" ><?= $post['content'] ?></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image_url" class="form-label"><b>Category</b></label>
+                            <select class="form-select" aria-label="Default select example" name="category_id" id="category_id">
+                                <option value="0" selected>Select Cetegory</option>
+                                <?php foreach ($categories as $category): ?>
+                                    <option value="<?php echo $category['category_id']?>" <?php echo $category['category_id'] == $post['category_id'] ? 'selected' : ''; ?>>
+                                        <?php echo $category['category_name']; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <label for="image_url" class="form-label"><b>Image</b></label>
+                            <input type="text" class="form-control" name="image_url" id="image_url" value="<?= $post['image_url'] ?>">
+                        </div>
+                        <button type="submit" class="btn btn-outline-secondary">Update</button>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="image_url" class="form-label"><b>Category</b></label>
-                    <select class="form-select" aria-label="Default select example" name="category_id" id="category_id">
-                        <option value="0" selected>Select Cetegory</option>
-                        <?php foreach ($categories as $category): ?>
-                            <option value="<?php echo $category['category_id']?>" <?php echo $category['category_id'] == $post['category_id'] ? 'selected' : ''; ?>>
-                                <?php echo $category['category_name']; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="mb-5">
-                    <label for="image_url" class="form-label"><b>Image</b></label>
-                    <input type="text" class="form-control" name="image_url" id="image_url" value="<?= $post['image_url'] ?>">
-                </div>
-                <button type="submit" class="btn btn-outline-secondary">Save</button>
-            </form>
         </div>
 
     </div>

@@ -79,12 +79,13 @@ if (isset($_POST['delete_post'])) {
     </div>
 
     <div class="row">
-        <div class="col-md-12"
-        <div><a href="../category/category.php" class="btn btn-secondary ">Category -></a></div>
+        <div class="col-md-12">
+            <div><a href="../category/category.php" class="btn btn-secondary ">Category -></a></div>
+        </div>
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card mt-3">
                 <div class="card-header">
                     Post create
@@ -98,7 +99,7 @@ if (isset($_POST['delete_post'])) {
                         </div>
                         <div class="mb-2">
                             <label for="content" class="form-label"><b>Content</b></label> <br>
-                            <textarea name="content" id="content" cols="41" rows="2"></textarea>
+                            <textarea name="content" id="content" cols="28" rows="2"></textarea>
                         </div>
                         <div class="mb-2">
                             <label for="image_url" class="form-label"><b>Category</b></label>
@@ -122,55 +123,61 @@ if (isset($_POST['delete_post'])) {
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card mt-3">
                 <div class="card-header">
                     Post List
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped table-hover table-responsive">
-                        <thead>
-                        <tr>
-                            <th scope="col">S/L</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Content</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody class="table-group-divider">
-                        <?php $serial = 1; ?>
-                        <?php foreach ($posts as $post): ?>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered">
+                            <!-- Table header -->
+                            <thead>
                             <tr>
-                                <td scope="row"><?php echo $serial ?></td>
-                                <td><?php echo $post['title'] ?></td>
-                                <td><?php echo $post['content'] ?></td>
-                                <td><?php echo $post['category_name'] ?></td>
-                                <td><?php echo $post['image_url'] ?></td>
-                                <td>
-                                    <a href="edit_post.php?id=<?php echo $post['post_id'] ?>" class="btn btn-primary btn-sm">Edit</a>
-                                    <form action="" method="post" style="display: inline;">
-                                        <input type="hidden" name="delete_post" value="<?php echo $post['post_id'] ?>">
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
-                                </td>
+                                <th scope="col">S/L</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Content</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Action</th>
                             </tr>
-                            <?php $serial++ ?>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <!-- Table body -->
+                            <tbody class="table-group-divider">
+                            <?php $serial = 1; ?>
+                            <?php foreach ($posts as $post): ?>
+                                <tr>
+                                    <td scope="row"><?php echo $serial ?></td>
+                                    <td><?php echo $post['title'] ?></td>
+                                    <td><?php echo $post['content'] ?></td>
+                                    <td><?php echo $post['category_name'] ?></td>
+                                    <td><?php echo $post['image_url'] ?></td>
+                                    <td>
+                                        <a href="edit_post.php?id=<?php echo $post['post_id'] ?>" class="btn btn-primary btn-sm">Edit</a>
+                                        <form action="" method="post" style="display: inline;">
+                                            <input type="hidden" name="delete_post" value="<?php echo $post['post_id'] ?>">
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <?php $serial++ ?>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
