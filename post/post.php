@@ -79,8 +79,19 @@ if (isset($_POST['delete_post'])) {
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div><a href="../category/category.php" class="btn btn-secondary ">Category -></a></div>
+        </div>
+        <div class="col-md-4">
+            <?php
+            if (isset($_SESSION['success_message'])) {
+                echo '<div class="alert alert-success text-center" role="alert">' . $_SESSION['success_message'] . '</div>';
+                unset($_SESSION['success_message']);
+            } elseif (isset($_SESSION['error_message'])) {
+                echo '<div class="alert alert-danger text-center" role="alert">' . $_SESSION['error_message'] . '</div>';
+                unset($_SESSION['error_message']);
+            }
+            ?>
         </div>
     </div>
 

@@ -3,13 +3,13 @@ require_once 'db_connect.php';
 
 class Post extends Database {
 
-    public function getAllPost() {
-      echo "Get All Posts";
-    }
-
     public function addPost($title, $content, $category_id, $image) {
         $sql = "INSERT INTO posts (title, content, category_id, image_url) VALUES ('$title', '$content', '$category_id', '$image')";
-        return $this->conn->query($sql);
+         if ($this->conn->query($sql)) {
+             $_SESSION['success_message'] = "Post Created Successfully";
+         } else {
+             $_SESSION['error_message'] = "Post Created Problem";
+         }
     }
 
     public function getAllPosts() {
@@ -34,12 +34,20 @@ class Post extends Database {
 
     public function updatePost($postId, $title, $content, $category_id, $image) {
         $sql = "UPDATE posts SET title = '$title', content = '$content', category_id = '$category_id', image_url = '$image' WHERE post_id = '$postId'";
-        return $this->conn->query($sql);
+        if ($this->conn->query($sql)) {
+            $_SESSION['success_message'] = "Post Update Successfully";
+        } else {
+            $_SESSION['error_message'] = "Post Update Problem";
+        }
     }
 
     public function deletePost($postId) {
         $sql = "DELETE FROM posts WHERE post_id = '$postId'";
-        return $this->conn->query($sql);
+        if ($this->conn->query($sql)) {
+            $_SESSION['success_message'] = "Post Deleted";
+        } else {
+            $_SESSION['error_message'] = "Post Delete Problem";
+        }
     }
 
 
