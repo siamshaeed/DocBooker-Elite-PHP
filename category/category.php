@@ -69,8 +69,20 @@ if (!empty($_POST['category_id']))  {
     </div>
 
     <div class="row">
-        <div class="col-md-12"
-        <div><a href="../post/post.php" class="btn btn-secondary ">Post -></a></div>
+        <div class="col-md-8">
+            <a href="../post/post.php" class="btn btn-secondary ">Post -></a>
+        </div>
+        <div class="col-md-4">
+            <?php
+            if (isset($_SESSION['success_message'])) {
+               echo '<div class="alert alert-success text-center" role="alert">' . $_SESSION['success_message'] . '</div>';
+                unset($_SESSION['success_message']);
+            } elseif (isset($_SESSION['error_message'])) {
+                echo '<div class="alert alert-dangertext-center" role="alert">' . $_SESSION['error_message'] . '</div>';
+                unset($_SESSION['error_message']);
+            }
+            ?>
+        </div>
     </div>
 
     <div class="row">

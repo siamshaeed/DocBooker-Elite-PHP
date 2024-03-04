@@ -1,5 +1,7 @@
 <?php
 require_once '../class/db_connect.php';
+session_start();
+
 
 class Category extends Database {
    public function getAllCategories() {     //show category
@@ -15,7 +17,11 @@ class Category extends Database {
 
     public function addCategory($categoryName) {        // Add Category
         $sql = "INSERT INTO categories (category_name) VALUES ('$categoryName')";
-        return $this->conn->query($sql);
+       if ($this->conn->query($sql)) {
+           $_SESSION['success_message'] = "Category Created Successfully";
+       } else {
+           $_SESSION['error_message'] = "Category Create Problem";
+       }
     }
 
     public function getCategoryById($categoryId) {
