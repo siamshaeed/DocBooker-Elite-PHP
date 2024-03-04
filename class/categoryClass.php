@@ -1,6 +1,6 @@
 <?php
 require_once '../class/db_connect.php';
-session_start();
+session_start(); // session start
 
 
 class Category extends Database {
@@ -32,12 +32,20 @@ class Category extends Database {
 
     public function updateCategory($categoryId, $categoryName) {
        $sql = "UPDATE categories SET category_name = '$categoryName' WHERE category_id = '$categoryId'";
-       return $this->conn->query($sql);
+        if ($this->conn->query($sql)) {
+            $_SESSION['success_message'] = "Category Update Successfully";
+        } else {
+            $_SESSION['error_message'] = "Category Update Problem";
+        }
     }
 
     public function deleteCategory($categoryId) {
        $sql = "DELETE FROM categories WHERE category_id = $categoryId";
-       return $this->conn->query($sql);
+       if ($this->conn->query($sql)) {
+           $_SESSION['success_message'] = "Category Deleted";
+       } else {
+           $_SESSION['error_message'] = "Category Delete Problem";
+       }
     }
 
 
