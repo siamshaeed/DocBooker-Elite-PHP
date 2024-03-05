@@ -159,8 +159,8 @@ if (isset($_POST['delete_post'])) {
                             <?php foreach ($posts as $post): ?>
                                 <tr>
                                     <td scope="row"><?php echo $serial ?></td>
-                                    <td><?php echo $post['title'] ?></td>
-                                    <td><?php echo $post['content'] ?></td>
+                                    <td><?php echo mb_strimwidth($post['title'], 0, 18, '..' ) ?></td>
+                                    <td><?php echo mb_strimwidth($post['content'], 0 , 20, '..') ?></td>
                                     <td><?php echo $post['category_name'] ?></td>
                                     <td><?php echo $post['image_url'] ?></td>
                                     <td>

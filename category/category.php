@@ -95,7 +95,7 @@ if (!empty($_POST['category_id']))  {
                     <form action="" method="post">
                         <div class="mb-3">
                             <label for="category_name" class="form-label">Category Name</label>
-                            <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Enter Category Name">
+                            <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Enter Category Name" required>
                         </div>
                         <button type="submit" class="btn btn-outline-secondary">Save</button>
                     </form>
@@ -124,7 +124,7 @@ if (!empty($_POST['category_id']))  {
                         <?php foreach ($categories as $category): ?>
                             <tr class="text-center">
                                 <td scope="row"><?php echo $serial ?></td>
-                                <td><?php echo $category['category_name'] ?></td>
+                                <td><?php echo mb_strimwidth($category['category_name'], 0, 22, '..'); ?></td>
                                 <td>5</td>
                                 <td>Active</td>
                                 <td>
