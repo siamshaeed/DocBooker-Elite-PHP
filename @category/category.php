@@ -1,5 +1,5 @@
 <?php
-include_once '../class/categoryClass.php';
+include_once '../@class/categoryClass.php';
 // Display categories
 $category = new  Category();
 $categories = $category->getAllCategories();
@@ -11,7 +11,7 @@ if (!empty($_POST['category_name'])) {
     $categoryObj = new Category();
     $categoryObj->addCategory($categoryName);
 
-    header("Location: category.php");
+    header("Location: @category.php");
     exit();
 }
 
@@ -22,7 +22,7 @@ if (!empty($_POST['category_id']))  {
     $categoryObj    = new Category();
     $categoryObj->deleteCategory($categoryId);
 
-    header("Location: category.php");
+    header("Location: @category.php");
     exit();
 }
 ?>
@@ -49,10 +49,10 @@ if (!empty($_POST['category_id']))  {
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../post/post.php">Post</a>
+                    <a class="nav-link" href="../@post/post.php">Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../category/category.php">Category</a>
+                    <a class="nav-link" href="/category.php">Category</a>
                 </li>
             </ul>
         </div>
@@ -70,15 +70,15 @@ if (!empty($_POST['category_id']))  {
 
     <div class="row">
         <div class="col-md-8">
-            <a href="../post/post.php" class="btn btn-secondary ">Post -></a>
+            <a href="../@post/post.php" class="btn btn-secondary ">Post -></a>
         </div>
         <div class="col-md-4">
             <?php
             if (isset($_SESSION['success_message'])) {
-               echo '<div class="alert alert-success text-center" role="alert">' . $_SESSION['success_message'] . '</div>';
+               echo '<div @class="alert alert-success text-center" role="alert">' . $_SESSION['success_message'] . '</div>';
                 unset($_SESSION['success_message']);
             } elseif (isset($_SESSION['error_message'])) {
-                echo '<div class="alert alert-dangertext-center" role="alert">' . $_SESSION['error_message'] . '</div>';
+                echo '<div @class="alert alert-dangertext-center" role="alert">' . $_SESSION['error_message'] . '</div>';
                 unset($_SESSION['error_message']);
             }
             ?>

@@ -1,10 +1,10 @@
 <?php
-require_once '../class/db_connect.php';
+require_once '../@class/db_connect.php';
 session_start(); // session start
 
 
 class Category extends Database {
-   public function getAllCategories() {     //show category
+   public function getAllCategories() {     //show @category
        $sql = "SELECT * FROM categories";
        $result = $this->conn->query($sql);
 

@@ -1,6 +1,6 @@
 <?php
-require_once '../class/postClass.php';
-require_once '../class/categoryClass.php';
+require_once '../@class/postClass.php';
+require_once '../@class/categoryClass.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $postId = $_GET['id'];
@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $postObj = new Post();
     $postObj->updatePost($postId, $title, $content, $category_id, $image);
 
-    header('Location:post.php');
+    header('Location:@post.php');
     exit();
 } else {
-    header('Location:post.php');
+    header('Location:@post.php');
     exit();
 }
 
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
                     <a class="nav-link" href="#">Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../category/category.php">Category</a>
+                    <a class="nav-link" href="../@category/category.php">Category</a>
                 </li>
             </ul>
         </div>
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 
     <div class="row">
         <div class="col-md-12">
-            <div><a href="../post/post.php" class="btn btn-secondary ">Post -></a></div>
+            <div><a href="/post.php" class="btn btn-secondary ">Post -></a></div>
         </div>
     </div>
 

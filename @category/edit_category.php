@@ -1,5 +1,5 @@
 <?php
-include_once '../class/categoryClass.php';
+include_once '../@class/categoryClass.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $categoryId = $_GET['id'];
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $categoryObj    = new Category();
     $categoryObj->updateCategory($categoryId, $categoryName);
 
-    header('Location: category.php');
+    header('Location: @category.php');
     exit();
 }
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 
     <div class="row">
         <div class="col-md-8">
-            <div><a href="../category/category.php" class="btn btn-secondary ">Category -></a></div>
+            <div><a href="/category.php" class="btn btn-secondary ">Category -></a></div>
         </div>
         <div class="col-md-4"></div>
     </div>

@@ -1,12 +1,12 @@
 <?php
-require_once '../class/categoryClass.php';
-require_once '../class/postClass.php';
+require_once '../@class/categoryClass.php';
+require_once '../@class/postClass.php';
 
-// show category list
+// show @category list
 $categoryObj = new Category();
 $categories = $categoryObj->getAllCategories();
 
-// store post
+// store @post
 if (!empty($_POST['title'])) {
     $title = $_POST['title'];
     $content = $_POST['content'];
@@ -16,22 +16,22 @@ if (!empty($_POST['title'])) {
     $postObj = new Post();
     $postObj->addPost($title, $content, $category_id, $image);
 
-    header("Location: post.php");
+    header("Location: @post.php");
     exit();
 }
 
-// show post list
+// show @post list
 $postObj = new Post();
 $posts = $postObj->getAllPosts();
 
-// Delete post
+// Delete @post
 if (isset($_POST['delete_post'])) {
     $postId = $_POST['delete_post'];
 
     $postObj = new Post();
     $postObj->deletePost($postId);
 
-    header('Location:post.php');
+    header('Location:@post.php');
     exit();
 }
 ?>
@@ -59,10 +59,10 @@ if (isset($_POST['delete_post'])) {
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../post/post.php">Post</a>
+                    <a class="nav-link" href="/post.php">Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../category/category.php">Category</a>
+                    <a class="nav-link" href="../@category/category.php">Category</a>
                 </li>
             </ul>
         </div>
@@ -80,15 +80,15 @@ if (isset($_POST['delete_post'])) {
 
     <div class="row">
         <div class="col-md-8">
-            <div><a href="../category/category.php" class="btn btn-secondary ">Category -></a></div>
+            <div><a href="../@category/category.php" class="btn btn-secondary ">Category -></a></div>
         </div>
         <div class="col-md-4">
             <?php
             if (isset($_SESSION['success_message'])) {
-                echo '<div class="alert alert-success text-center" role="alert">' . $_SESSION['success_message'] . '</div>';
+                echo '<div @class="alert alert-success text-center" role="alert">' . $_SESSION['success_message'] . '</div>';
                 unset($_SESSION['success_message']);
             } elseif (isset($_SESSION['error_message'])) {
-                echo '<div class="alert alert-danger text-center" role="alert">' . $_SESSION['error_message'] . '</div>';
+                echo '<div @class="alert alert-danger text-center" role="alert">' . $_SESSION['error_message'] . '</div>';
                 unset($_SESSION['error_message']);
             }
             ?>

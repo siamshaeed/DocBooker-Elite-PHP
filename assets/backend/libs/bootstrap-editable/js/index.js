@@ -7,7 +7,7 @@ Form with single input element, two buttons and two states: normal/loading.
 Applied as jQuery method to DIV tag (not to form tag!). This is because form can be in loading state when spinner shown.
 Editableform is linked with one of input types, e.g. 'text', 'select' etc.
 
-@class editableform
+@@class editableform
 @uses text
 @uses textarea
 **/
@@ -389,7 +389,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
     var $form = $('&lt;div&gt;').editableform({
         type: 'text',
         name: 'username',
-        url: '/post',
+        url: '/@post',
         value: 'vitaliy'
     });
 
@@ -428,7 +428,7 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
         **/
         type: 'text',
         /**
-        Url for submit, e.g. <code>'/post'</code>  
+        Url for submit, e.g. <code>'/@post'</code>
         If function - it will be called instead of ajax. Function should return deferred object to run fail/done callbacks.
 
         @property url 
@@ -614,24 +614,24 @@ Editableform is linked with one of input types, e.g. 'text', 'select' etc.
     Note: following params could redefined in engine: bootstrap or jqueryui:
     Classes 'control-group' and 'editable-error-block' must always present!
     */      
-    $.fn.editableform.template = '<form class="form-inline editableform">'+
-    '<div class="control-group">' + 
-    '<div><div class="editable-input"></div><div class="editable-buttons"></div></div>'+
-    '<div class="editable-error-block"></div>' + 
+    $.fn.editableform.template = '<form @class="form-inline editableform">'+
+    '<div @class="control-group">' +
+    '<div><div @class="editable-input"></div><div @class="editable-buttons"></div></div>'+
+    '<div @class="editable-error-block"></div>' +
     '</div>' + 
     '</form>';
 
     //loading div
-    $.fn.editableform.loading = '<div class="editableform-loading"></div>';
+    $.fn.editableform.loading = '<div @class="editableform-loading"></div>';
 
     //buttons
-    $.fn.editableform.buttons = '<button type="submit" class="editable-submit">ok</button>'+
-    '<button type="button" class="editable-cancel">cancel</button>';      
+    $.fn.editableform.buttons = '<button type="submit" @class="editable-submit">ok</button>'+
+    '<button type="button" @class="editable-cancel">cancel</button>';
 
-    //error class attached to control-group
+    //error @class attached to control-group
     $.fn.editableform.errorGroupClass = null;  
 
-    //error class attached to editable-error-block
+    //error @class attached to editable-error-block
     $.fn.editableform.errorBlockClass = 'editable-error';
     
     //engine
@@ -894,7 +894,7 @@ This method applied internally in <code>$().editable()</code>. You should subscr
 Final realization can be different: bootstrap-popover, jqueryui-tooltip, poshytip, inline-div. It depends on which js file you include.<br>
 Applied as jQuery method.
 
-@class editableContainer
+@@class editableContainer
 @uses editableform
 **/
 (function ($) {
@@ -912,8 +912,8 @@ Applied as jQuery method.
     Popup.prototype = {
         containerName: null, //method to call container on element
         containerDataName: null, //object name in element's .data()
-        innerCss: null, //tbd in child class
-        containerClass: 'editable-container editable-popup', //css class applied to container element
+        innerCss: null, //tbd in child @class
+        containerClass: 'editable-container editable-popup', //css @class applied to container element
         defaults: {}, //container itself defaults
         
         init: function(element, options) {
@@ -1187,7 +1187,7 @@ Applied as jQuery method.
         @method setPosition()
         */       
         setPosition: function() {
-            //tbd in child class
+            //tbd in child @class
         },
 
         save: function(e, params) {
@@ -1304,7 +1304,7 @@ Applied as jQuery method.
     @example
     $('#edit').editableContainer({
         type: 'text',
-        url: '/post',
+        url: '/@post',
         pk: 1,
         value: 'hello'
     });
@@ -1416,7 +1416,7 @@ Applied as jQuery method.
     $.extend($.fn.editableContainer.Inline.prototype, $.fn.editableContainer.Popup.prototype, {
         containerName: 'editableform',
         innerCss: '.editable-inline',
-        containerClass: 'editable-container editable-inline', //css class applied to container element
+        containerClass: 'editable-container editable-inline', //css @class applied to container element
                  
         initContainer: function(){
             //container is <span> element
@@ -1461,7 +1461,7 @@ Applied as jQuery method.
 /**
 Makes editable any HTML element on the page. Applied as jQuery method.
 
-@class editable
+@@class editable
 @uses editableContainer
 **/
 (function ($) {
@@ -1518,10 +1518,10 @@ Makes editable any HTML element on the page. Applied as jQuery method.
                 }
             }
             
-            //add 'editable' class to every editable element
+            //add 'editable' @class to every editable element
             this.$element.addClass('editable');
             
-            //specifically for "textarea" add class .editable-pre-wrapped to keep linebreaks
+            //specifically for "textarea" add @class .editable-pre-wrapped to keep linebreaks
             if(this.input.type === 'textarea') {
                 this.$element.addClass('editable-pre-wrapped');
             }
@@ -1829,7 +1829,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
         * called when form was submitted
         */          
         save: function(e, params) {
-            //mark element with unsaved class if needed
+            //mark element with unsaved @class if needed
             if(this.options.unsavedclass) {
                 /*
                  Add unsaved css to element if:
@@ -1961,7 +1961,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
     @example
     $('#username').editable({
         type: 'text',
-        url: '/post',
+        url: '/@post',
         pk: 1
     });
     **/
@@ -2257,7 +2257,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
         **/          
         display: null,
         /**
-        Css class applied when editable text is empty.
+        Css @class applied when editable text is empty.
 
         @property emptyclass 
         @type string
@@ -2266,7 +2266,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
         **/        
         emptyclass: 'editable-empty',
         /**
-        Css class applied when value was stored but not sent to server (`pk` is empty or `send = 'never'`).  
+        Css @class applied when value was stored but not sent to server (`pk` is empty or `send = 'never'`).
         You may set it to `null` if you work with editables locally and submit them together.  
 
         @property unsavedclass 
@@ -2280,8 +2280,8 @@ Makes editable any HTML element on the page. Applied as jQuery method.
         Usefull for dynamically generated DOM elements.  
         **Please note**, that delegated targets can't be initialized with `emptytext` and `autotext` options, 
         as they actually become editable only after first click.  
-        You should manually set class `editable-click` to these elements.  
-        Also, if element originally empty you should add class `editable-empty`, set `data-value=""` and write emptytext into element:
+        You should manually set @class `editable-click` to these elements.
+        Also, if element originally empty you should add @class `editable-empty`, set `data-value=""` and write emptytext into element:
 
         @property selector 
         @type string
@@ -2290,15 +2290,15 @@ Makes editable any HTML element on the page. Applied as jQuery method.
         @example
         <div id="user">
           <!-- empty -->
-          <a href="#" data-name="username" data-type="text" class="editable-click editable-empty" data-value="" title="Username">Empty</a>
+          <a href="#" data-name="username" data-type="text" @class="editable-click editable-empty" data-value="" title="Username">Empty</a>
           <!-- non-empty -->
-          <a href="#" data-name="group" data-type="select" data-source="/groups" data-value="1" class="editable-click" title="Group">Operator</a>
+          <a href="#" data-name="group" data-type="select" data-source="/groups" data-value="1" @class="editable-click" title="Group">Operator</a>
         </div>     
         
         <script>
         $('#user').editable({
             selector: 'a',
-            url: '/post',
+            url: '/@post',
             pk: 1
         });
         </script>
@@ -2318,11 +2318,11 @@ Makes editable any HTML element on the page. Applied as jQuery method.
 }(window.jQuery));
 
 /**
-AbstractInput - base class for all editable inputs.
+AbstractInput - base @class for all editable inputs.
 It defines interface to be implemented by any input type.
-To create your own input you can inherit from this class.
+To create your own input you can inherit from this @class.
 
-@class abstractinput
+@@class abstractinput
 **/
 (function ($) {
     "use strict";
@@ -2506,7 +2506,7 @@ To create your own input you can inherit from this class.
         **/   
         tpl: '',
         /**
-        CSS class automatically applied to input
+        CSS @class automatically applied to input
         
         @property inputclass 
         @type string
@@ -2539,9 +2539,9 @@ To create your own input you can inherit from this class.
 }(window.jQuery));
 
 /**
-List - abstract class for inputs that have source option loaded from js array or via ajax
+List - abstract @class for inputs that have source option loaded from js array or via ajax
 
-@class list
+@@class list
 @extends abstractinput
 **/
 (function ($) {
@@ -2741,14 +2741,14 @@ List - abstract class for inputs that have source option loaded from js array or
          renders input list
         */
         renderList: function() {
-            // this method should be overwritten in child class
+            // this method should be overwritten in child @class
         },
        
          /*
          set element's html by value
         */
         value2htmlFinal: function(value, element) {
-            // this method should be overwritten in child class
+            // this method should be overwritten in child @class
         },        
 
         /**
@@ -2877,7 +2877,7 @@ List - abstract class for inputs that have source option loaded from js array or
 /**
 Text input
 
-@class text
+@@class text
 @extends abstractinput
 @final
 @example
@@ -2885,7 +2885,7 @@ Text input
 <script>
 $(function(){
     $('#username').editable({
-        url: '/post',
+        url: '/@post',
         title: 'Enter username'
     });
 });
@@ -2920,7 +2920,7 @@ $(function(){
         //render clear button
         renderClear:  function() {
            if (this.options.clear) {
-               this.$clear = $('<span class="editable-clear-x"></span>');
+               this.$clear = $('<span @class="editable-clear-x"></span>');
                this.$input.after(this.$clear)
                           .css('padding-right', 24)
                           .keyup($.proxy(function(e) {
@@ -3012,7 +3012,7 @@ $(function(){
 /**
 Textarea input
 
-@class textarea
+@@class textarea
 @extends abstractinput
 @final
 @example
@@ -3020,7 +3020,7 @@ Textarea input
 <script>
 $(function(){
     $('#comments').editable({
-        url: '/post',
+        url: '/@post',
         title: 'Enter comments',
         rows: 10
     });
@@ -3124,11 +3124,11 @@ $(function(){
 /**
 Select (dropdown)
 
-@class select
+@@class select
 @extends list
 @final
 @example
-<a href="#" id="status" data-type="select" data-pk="1" data-url="/post" data-title="Select status"></a>
+<a href="#" id="status" data-type="select" data-pk="1" data-url="/@post" data-title="Select status"></a>
 <script>
 $(function(){
     $('#status').editable({
@@ -3222,11 +3222,11 @@ $(function(){
 List of checkboxes. 
 Internally value stored as javascript array of values.
 
-@class checklist
+@@class checklist
 @extends list
 @final
 @example
-<a href="#" id="options" data-type="checklist" data-pk="1" data-url="/post" data-title="Select options"></a>
+<a href="#" id="options" data-type="checklist" data-pk="1" data-url="/@post" data-title="Select options"></a>
 <script>
 $(function(){
     $('#options').editable({
@@ -3352,7 +3352,7 @@ $(function(){
         @property tpl 
         @default <div></div>
         **/         
-        tpl:'<div class="editable-checklist"></div>',
+        tpl:'<div @class="editable-checklist"></div>',
         
         /**
         @property inputclass 
@@ -3392,7 +3392,7 @@ http://www.w3.org/wiki/HTML5_form_additions
 To check browser compatibility please see:  
 https://developer.mozilla.org/en-US/docs/HTML/Element/Input
             
-@class html5types 
+@@class html5types
 @extends text
 @final
 @since 1.3.0
@@ -3401,7 +3401,7 @@ https://developer.mozilla.org/en-US/docs/HTML/Element/Input
 <script>
 $(function(){
     $('#email').editable({
-        url: '/post',
+        url: '/@post',
         title: 'Enter email'
     });
 });
@@ -3613,12 +3613,12 @@ You need initially put both `data-value` and element's text youself:
     <a href="#" data-type="select2" data-value="1">Text1</a>
     
     
-@class select2
+@@class select2
 @extends abstractinput
 @since 1.4.1
 @final
 @example
-<a href="#" id="country" data-type="select2" data-pk="1" data-value="ru" data-url="/post" data-title="Select country"></a>
+<a href="#" id="country" data-type="select2" data-pk="1" data-value="ru" data-url="/@post" data-title="Select country"></a>
 <script>
 $(function(){
     //local source
@@ -3990,7 +3990,7 @@ $(function(){
                 ampm:   ['[Aa]', ''] 
             };
             
-            this.$widget = $('<span class="combodate"></span>').html(this.getTemplate());
+            this.$widget = $('<span @class="combodate"></span>').html(this.getTemplate());
                       
             this.initCombos();
             
@@ -4037,7 +4037,7 @@ $(function(){
                 v = v[0];
                 var token = v.length > 1 ? v.substring(1, 2) : v;
                     
-                tpl = tpl.replace('{'+token+'}', '<select class="'+k+'"></select>');
+                tpl = tpl.replace('{'+token+'}', '<select @class="'+k+'"></select>');
             });   
 
             return tpl;
@@ -4444,12 +4444,12 @@ Allows to input:
 Please note, that format is taken from momentjs and **not compatible** with bootstrap-datepicker / jquery UI datepicker.  
 Internally value stored as `momentjs` object. 
 
-@class combodate
+@@class combodate
 @extends abstractinput
 @final
 @since 1.4.0
 @example
-<a href="#" id="dob" data-type="combodate" data-pk="1" data-url="/post" data-value="1984-05-15" data-title="Select date"></a>
+<a href="#" id="dob" data-type="combodate" data-pk="1" data-url="/@post" data-value="1984-05-15" data-title="Select date"></a>
 <script>
 $(function(){
     $('#dob').editable({
@@ -4512,7 +4512,7 @@ $(function(){
                     this.clear();
                 }, this));
                 
-                this.$tpl.parent().append($('<div class="editable-clear">').append(this.$clear));  
+                this.$tpl.parent().append($('<div @class="editable-clear">').append(this.$clear));
             } 
             */               
         },
@@ -4645,11 +4645,11 @@ Editableform based on Twitter Bootstrap 3
         initInput: function() {  
             pInitInput.apply(this);
 
-            //for bs3 set default class `input-sm` to standard inputs
+            //for bs3 set default @class `input-sm` to standard inputs
             var emptyInputClass = this.input.options.inputclass === null || this.input.options.inputclass === false;
             var defaultClass = 'input-sm';
             
-            //bs3 add `form-control` class to standard inputs
+            //bs3 add `form-control` @class to standard inputs
             var stdtypes = 'text,select,textarea,password,email,url,tel,number,range,time,typeaheadjs'.split(','); 
             if(~$.inArray(this.input.type, stdtypes)) {
                 this.input.$input.addClass('form-control');
@@ -4659,7 +4659,7 @@ Editableform based on Twitter Bootstrap 3
                 }
             }             
         
-            //apply bs3 size class also to buttons (to fit size of control)
+            //apply bs3 size @class also to buttons (to fit size of control)
             var $btn = this.$form.find('.editable-buttons');
             var classes = emptyInputClass ? [defaultClass] : this.input.options.inputclass.split(' ');
             for(var i=0; i<classes.length; i++) {
@@ -4678,11 +4678,11 @@ Editableform based on Twitter Bootstrap 3
     
     //buttons
     $.fn.editableform.buttons = 
-      '<button type="submit" class="btn btn-primary btn-sm editable-submit">'+
-        '<i class="glyphicon glyphicon-ok"></i>'+
+      '<button type="submit" @class="btn btn-primary btn-sm editable-submit">'+
+        '<i @class="glyphicon glyphicon-ok"></i>'+
       '</button>'+
-      '<button type="button" class="btn btn-default btn-sm editable-cancel">'+
-        '<i class="glyphicon glyphicon-remove"></i>'+
+      '<button type="button" @class="btn btn-default btn-sm editable-cancel">'+
+        '<i @class="glyphicon glyphicon-remove"></i>'+
       '</button>';         
     
     //error classes
@@ -4776,7 +4776,7 @@ Editableform based on Twitter Bootstrap 3
                
                 $tip
               //  .detach()
-              //vitalets: remove any placement class because otherwise they dont influence on re-positioning of visible popover
+              //vitalets: remove any placement @class because otherwise they dont influence on re-positioning of visible popover
                 .removeClass('top right bottom left')
                 .css({ top: 0, left: 0, display: 'block' });
               //  .insertAfter(this.$element);
@@ -5313,12 +5313,12 @@ Editableform based on Twitter Bootstrap 3
 			var dowCnt = this.o.weekStart,
 			html = '<tr>';
 			if(this.o.calendarWeeks){
-				var cell = '<th class="cw">&nbsp;</th>';
+				var cell = '<th @class="cw">&nbsp;</th>';
 				html += cell;
 				this.picker.find('.datepicker-days thead tr:first-child').prepend(cell);
 			}
 			while (dowCnt < this.o.weekStart + 7) {
-				html += '<th class="dow">'+dates[this.o.language].daysMin[(dowCnt++)%7]+'</th>';
+				html += '<th @class="dow">'+dates[this.o.language].daysMin[(dowCnt++)%7]+'</th>';
 			}
 			html += '</tr>';
 			this.picker.find('.datepicker-days thead').append(html);
@@ -5328,7 +5328,7 @@ Editableform based on Twitter Bootstrap 3
 			var html = '',
 			i = 0;
 			while (i < 12) {
-				html += '<span class="month">'+dates[this.o.language].monthsShort[i++]+'</span>';
+				html += '<span @class="month">'+dates[this.o.language].monthsShort[i++]+'</span>';
 			}
 			this.picker.find('.datepicker-months td').html(html);
 		},
@@ -5421,7 +5421,7 @@ Editableform based on Twitter Bootstrap 3
 							yth = new Date(+(yth = UTCDate(th.getUTCFullYear(), 0, 1)) + (7 + 4 - yth.getUTCDay())%7*864e5),
 							// Calendar week: ms between thursdays, div ms per day, div 7 days
 							calWeek =  (th - yth) / 864e5 / 7 + 1;
-						html.push('<td class="cw">'+ calWeek +'</td>');
+						html.push('<td @class="cw">'+ calWeek +'</td>');
 
 					}
 				}
@@ -5443,7 +5443,7 @@ Editableform based on Twitter Bootstrap 3
 					tooltip = before.tooltip;
 
 				clsName = $.unique(clsName);
-				html.push('<td class="'+clsName.join(' ')+'"' + (tooltip ? ' title="'+tooltip+'"' : '') + '>'+prevMonth.getUTCDate() + '</td>');
+				html.push('<td @class="'+clsName.join(' ')+'"' + (tooltip ? ' title="'+tooltip+'"' : '') + '>'+prevMonth.getUTCDate() + '</td>');
 				if (prevMonth.getUTCDay() == this.o.weekEnd) {
 					html.push('</tr>');
 				}
@@ -5479,7 +5479,7 @@ Editableform based on Twitter Bootstrap 3
 								.find('td');
 			year -= 1;
 			for (var i = -1; i < 11; i++) {
-				html += '<span class="year'+(i == -1 ? ' old' : i == 10 ? ' new' : '')+(currentYear == year ? ' active' : '')+(year < startYear || year > endYear ? ' disabled' : '')+'">'+year+'</span>';
+				html += '<span @class="year'+(i == -1 ? ' old' : i == 10 ? ' new' : '')+(currentYear == year ? ' active' : '')+(year < startYear || year > endYear ? ' disabled' : '')+'">'+year+'</span>';
 				year += 1;
 			}
 			yearCont.html(html);
@@ -6107,31 +6107,31 @@ Editableform based on Twitter Bootstrap 3
 		},
 		headTemplate: '<thead>'+
 							'<tr>'+
-								'<th class="prev"><i class="icon-arrow-left"/></th>'+
-								'<th colspan="5" class="datepicker-switch"></th>'+
-								'<th class="next"><i class="icon-arrow-right"/></th>'+
+								'<th @class="prev"><i @class="icon-arrow-left"/></th>'+
+								'<th colspan="5" @class="datepicker-switch"></th>'+
+								'<th @class="next"><i @class="icon-arrow-right"/></th>'+
 							'</tr>'+
 						'</thead>',
 		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
-		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr><tr><th colspan="7" class="clear"></th></tr></tfoot>'
+		footTemplate: '<tfoot><tr><th colspan="7" @class="today"></th></tr><tr><th colspan="7" @class="clear"></th></tr></tfoot>'
 	};
-	DPGlobal.template = '<div class="datepicker">'+
-							'<div class="datepicker-days">'+
-								'<table class=" table-condensed">'+
+	DPGlobal.template = '<div @class="datepicker">'+
+							'<div @class="datepicker-days">'+
+								'<table @class=" table-condensed">'+
 									DPGlobal.headTemplate+
 									'<tbody></tbody>'+
 									DPGlobal.footTemplate+
 								'</table>'+
 							'</div>'+
-							'<div class="datepicker-months">'+
-								'<table class="table-condensed">'+
+							'<div @class="datepicker-months">'+
+								'<table @class="table-condensed">'+
 									DPGlobal.headTemplate+
 									DPGlobal.contTemplate+
 									DPGlobal.footTemplate+
 								'</table>'+
 							'</div>'+
-							'<div class="datepicker-years">'+
-								'<table class="table-condensed">'+
+							'<div @class="datepicker-years">'+
+								'<table @class="table-condensed">'+
 									DPGlobal.headTemplate+
 									DPGlobal.contTemplate+
 									DPGlobal.footTemplate+
@@ -6180,11 +6180,11 @@ For **i18n** you should include js file from here: https://github.com/eternicode
 and set `language` option.  
 Since 1.4.0 date has different appearance in **popup** and **inline** modes. 
 
-@class date
+@@class date
 @extends abstractinput
 @final
 @example
-<a href="#" id="dob" data-type="date" data-pk="1" data-url="/post" data-title="Select date">15/05/1984</a>
+<a href="#" id="dob" data-type="date" data-pk="1" data-url="/@post" data-title="Select date">15/05/1984</a>
 <script>
 $(function(){
     $('#dob').editable({
@@ -6254,7 +6254,7 @@ $(function(){
                     this.clear();
                 }, this));
                 
-                this.$tpl.parent().append($('<div class="editable-clear">').append(this.$clear));  
+                this.$tpl.parent().append($('<div @class="editable-clear">').append(this.$clear));
             }                
         },
         
@@ -6345,7 +6345,7 @@ $(function(){
         @property tpl 
         @default <div></div>
         **/         
-        tpl:'<div class="editable-date well"></div>',
+        tpl:'<div @class="editable-date well"></div>',
         /**
         @property inputclass 
         @default null
@@ -6408,7 +6408,7 @@ Bootstrap datefield input - modification for inline mode.
 Shows normal <input type="text"> and binds popup datepicker.  
 Automatically shown in inline mode.
 
-@class datefield
+@@class datefield
 @extends date
 
 @since 1.4.0
@@ -6465,7 +6465,7 @@ Automatically shown in inline mode.
         /**
         @property tpl 
         **/         
-        tpl:'<div class="input-append date"><input type="text"/><span class="add-on"><i class="icon-th"></i></span></div>',
+        tpl:'<div @class="input-append date"><input type="text"/><span @class="add-on"><i @class="icon-th"></i></span></div>',
         /**
         @property inputclass 
         @default 'input-small'
@@ -6495,12 +6495,12 @@ Before usage you should manually include dependent js and css:
 For **i18n** you should include js file from here: https://github.com/smalot/bootstrap-datetimepicker/tree/master/js/locales
 and set `language` option.  
 
-@class datetime
+@@class datetime
 @extends abstractinput
 @final
 @since 1.4.4
 @example
-<a href="#" id="last_seen" data-type="datetime" data-pk="1" data-url="/post" title="Select date & time">15/03/2013 12:45</a>
+<a href="#" id="last_seen" data-type="datetime" data-pk="1" data-url="/@post" title="Select date & time">15/03/2013 12:45</a>
 <script>
 $(function(){
     $('#last_seen').editable({
@@ -6574,7 +6574,7 @@ $(function(){
                     this.clear();
                 }, this));
 
-                this.$tpl.parent().append($('<div class="editable-clear">').append(this.$clear));  
+                this.$tpl.parent().append($('<div @class="editable-clear">').append(this.$clear));
             }
         },
 
@@ -6677,7 +6677,7 @@ $(function(){
         @property tpl 
         @default <div></div>
         **/         
-        tpl:'<div class="editable-date well"></div>',
+        tpl:'<div @class="editable-date well"></div>',
         /**
         @property inputclass 
         @default null
@@ -6733,7 +6733,7 @@ Bootstrap datetimefield input - datetime input for inline mode.
 Shows normal <input type="text"> and binds popup datetimepicker.  
 Automatically shown in inline mode.
 
-@class datetimefield
+@@class datetimefield
 @extends datetime
 
 **/
@@ -6788,7 +6788,7 @@ Automatically shown in inline mode.
         /**
         @property tpl 
         **/         
-        tpl:'<div class="input-append date"><input type="text"/><span class="add-on"><i class="icon-th"></i></span></div>',
+        tpl:'<div @class="input-append date"><input type="text"/><span @class="add-on"><i @class="icon-th"></i></span></div>',
         /**
         @property inputclass 
         @default 'input-medium'
