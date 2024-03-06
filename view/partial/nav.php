@@ -36,7 +36,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="blog.php" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <i class="icofont-thin-down"></i></a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown05">
-                        <li><a class="dropdown-item" href="blog.php">Blog with Sidebar</a></li>
+                        <li><a class="dropdown-item" href="blog.php">Blog</a></li>
 
                         <li><a class="dropdown-item" href="blog_single.php">Blog Single</a></li>
                     </ul>
