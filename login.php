@@ -1,4 +1,20 @@
+<?php
+require_once 'classes/user_class.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {  // user credential get from login form
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $user = new User();
+    if ($user->adminLogin($email, $password)) {
+        header('Location:dashboard.php');
+        exit();
+    } else {
+        echo("Your Credential don't match !");
+    }
+}
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -56,12 +72,13 @@
 
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input class="form-control" id="email" placeholder="Enter email" type="email">
+                  <input class="form-control" name="email" id="email" placeholder="Enter email" type="email" required>
                 </div>
 
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input class="form-control" id="password" placeholder="Enter password" type="password">
+                  <input class="form-control" name="password" id="password" placeholder="Enter password"
+                         type="password" required>
                 </div>
 
                 <div class="custom-control custom-checkbox">
