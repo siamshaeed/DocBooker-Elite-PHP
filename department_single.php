@@ -1,2 +1,3 @@
 <?php
-require 'view/department.view.phpe';
+
+require 'view/department_single.view.php';
