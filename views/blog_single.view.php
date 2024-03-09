@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="zxx">
-<?php require 'view/partial/head.php'?>
+<?php require 'views/partial/head.php' ?>
 
 <body id="top">
 
 <header>
-    <?php require 'view/partial/header_top.php'?>
+    <?php require 'views/partial/header_top.php' ?>
 
-    <?php require 'view/partial/nav.php'?>
+    <?php require 'views/partial/nav.php' ?>
 
 </header>
 
@@ -243,9 +243,9 @@
     </div>
 </section>
 
-<?php require 'view/partial/footer.php'?>
+<?php require 'views/partial/footer.php' ?>
 
-<?php require 'view/partial/script.php'?>
+<?php require 'views/partial/script.php' ?>
 
 </body>
 </html>

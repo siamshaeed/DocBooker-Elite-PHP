@@ -1,3 +1,3 @@
 <?php
 $headeing = "Blog";
-require 'view/blog.view.php';
+require 'views/blog.view.php';

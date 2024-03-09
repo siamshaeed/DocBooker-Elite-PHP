@@ -1,3 +1,3 @@
 <?php
 $headeing = "Doctor Single";
-require 'view/doctor_single.view.php';
+require 'views/doctor_single.view.php';

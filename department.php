@@ -1,3 +1,3 @@
 <?php
 $headeing = "Department";
-require 'view/department.view.php';
+require 'views/department.view.php';

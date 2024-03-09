@@ -1,3 +1,3 @@
 <?php
 $headeing = "Service";
-require  'view/service.view.php';
+require 'views/service.view.php';

@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<?php require 'view/partial/head.php'?>
+<?php require 'views/partial/head.php' ?>
 
 <body id="top">
 
 <header>
 	<!-- header-top-bar -->
-    <?php require 'view/partial/header_top.php'?>
+    <?php require 'views/partial/header_top.php' ?>
 	<!-- End header-top-bar -->
 
 	<!-- main navbar -->
-    <?php require 'view/partial/nav.php'?>
+    <?php require 'views/partial/nav.php' ?>
   <!-- End main navbar -->
 </header>
 
 <!-- banner Start -->
-<?php require 'view/partial/banner.php'?>
+<?php require 'views/partial/banner.php' ?>
 <!-- End banner -->
 
 <!-- features start -->
-<?php require 'view/partial/feature.php' ?>
+<?php require 'views/partial/feature.php' ?>
 <!-- End features -->
 
 <!-- about start -->
-<?php require 'view/partial/about.php' ?>
+<?php require 'views/partial/about.php' ?>
 <!-- End about -->
 
 <!--cta-section start-->
-<?php require 'view/partial/cta.php' ?>
+<?php require 'views/partial/cta.php' ?>
 <!--cta-section end-->
 
 <!--service start-->
-<?php require 'view/partial/service.php' ?>
+<?php require 'views/partial/service.php' ?>
 <!-- end service -->
 
 <!-- appoinment start -->
-<?php require 'view/partial/appoinment.php' ?>
+<?php require 'views/partial/appoinment.php' ?>
 <!-- End appoinment -->
 
 <!-- testimonial start -->
-<?php require 'view/partial/testimonial.php' ?>
+<?php require 'views/partial/testimonial.php' ?>
 <!-- testimonial end -->
 
 <!--clients start-->
-<?php require 'view/partial/client.php' ?>
+<?php require 'views/partial/client.php' ?>
 <!--end clients -->
 
 <!-- footer Start -->
-<?php require 'view/partial/footer.php'?>
+<?php require 'views/partial/footer.php' ?>
 <!-- End footer -->
 
     <!-- Essential Scripts -->
-<?php require 'view/partial/script.php'?>
+<?php require 'views/partial/script.php' ?>
 
   </body>
   </html>
