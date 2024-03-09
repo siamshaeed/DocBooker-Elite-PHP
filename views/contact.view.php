@@ -15,6 +15,12 @@
     <?php require 'partial/page_about.php'?>
 </section>
 <!-- contact form start -->
+<?php
+require_once 'classes/settings_class.php';
+
+$setting = new Setting();
+$allSettings = $setting->getData();
+?>
 
 <section class="section contact-info pb-0">
     <div class="container">
@@ -23,21 +29,21 @@
                 <div class="contact-block mb-4 mb-lg-0">
                     <i class="icofont-live-support"></i>
                     <h5>Call Us</h5>
-                    +823-4565-13456
+                   <?php echo $allSettings['phone'] ?>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 col-md-6">
                 <div class="contact-block mb-4 mb-lg-0">
                     <i class="icofont-support-faq"></i>
                     <h5>Email Us</h5>
-                    contact@mail.com
+                    <?php echo $allSettings['email'] ?>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 col-md-6">
                 <div class="contact-block mb-4 mb-lg-0">
                     <i class="icofont-location-pin"></i>
                     <h5>Location</h5>
-                    North Main Street,Brooklyn Australia
+                    <?php echo $allSettings['address'] ?>
                 </div>
             </div>
         </div>

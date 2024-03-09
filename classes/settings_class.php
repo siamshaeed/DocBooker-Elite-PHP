@@ -12,4 +12,14 @@ class Setting extends Database {
 
         return $this->conn->query($sql);
     }
+
+    public function getData() {
+        $sql = "SELECT * FROM settings WHERE id = 1 AND status = 1;";
+        $result = $this->conn->query($sql);
+        return $result->fetch_assoc();
+
+    }
 }
+
+
+
