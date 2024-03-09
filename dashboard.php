@@ -28,21 +28,21 @@
         <!-- LOGO -->
         <div class="navbar-brand-box">
           <a class="logo logo-dark" href="index.php">
-                        <span class="logo-sm">
-                           <img alt="" height="22" src="assets/backend/images/logo.svg">
-                        </span>
+            <span class="logo-sm">
+              <img alt="" height="22" src="assets/backend/images/logo.svg">
+            </span>
             <span class="logo-lg">
-                           <img alt="" height="17" src="assets/backend/images/logo-dark.png">
-                        </span>
+              <img alt="" height="17" src="assets/backend/images/logo-dark.png">
+             </span>
           </a>
 
           <a class="logo logo-light" href="index.php">
-                        <span class="logo-sm">
-                          <img alt="" height="22" src="assets/backend/images/logo-light.svg">
-                        </span>
+            <span class="logo-sm">
+              <img alt="" height="22" src="assets/backend/images/logo-light.svg">
+            </span>
             <span class="logo-lg">
-                          <img alt="" height="19" src="assets/backend/images/logo-light.png">
-                        </span>
+              <img alt="" height="19" src="assets/backend/images/logo-light.png">
+             </span>
           </a>
         </div>
 
@@ -91,6 +91,18 @@
             </a>
             <ul aria-expanded="false" class="sub-menu">
               <li><a href="">Task List</a></li>
+              <li><a href="">Kanban Board</a></li>
+              <li><a href="">Create Task</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a class="has-arrow waves-effect" href="javascript: void(0);">
+              <i class="bx bx-task"></i>
+              <span>App Setting</span>
+            </a>
+            <ul aria-expanded="false" class="sub-menu">
+              <li><a href="views/dashboard/generel_setting.php">General setting</a></li>
               <li><a href="">Kanban Board</a></li>
               <li><a href="">Create Task</a></li>
             </ul>
