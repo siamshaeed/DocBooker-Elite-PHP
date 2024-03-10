@@ -17,7 +17,6 @@ class Setting extends Database {
         $sql = "SELECT * FROM settings WHERE id = 1 AND status = 1;";
         $result = $this->conn->query($sql);
         return $result->fetch_assoc();
-
     }
 }
 
