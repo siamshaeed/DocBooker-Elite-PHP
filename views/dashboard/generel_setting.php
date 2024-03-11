@@ -13,16 +13,18 @@
           <?php
           require_once '../../classes/settings_class.php';
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['logo']))  {
               $app_name = $_POST['app_name'];
               $email = $_POST['email'];
               $address = $_POST['address'];
               $phone = $_POST['phone'];
-//              $logo = $_FILES['logo'];
-//              $favicon = $_FILES['favicon'];
+              $logo = $_FILES['logo'];
+              $favicon = $_FILES['favicon'];
 
               $storeobj = new Setting();
-              $storeobj->store($app_name, $email, $address, $phone);
+              $storeobj->store($app_name, $email, $address, $phone, $logo, $favicon);
+
+              exit();
             }
           ?>
         <div class="row">
@@ -35,7 +37,7 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                   <div class="form-group row mb-2">
                     <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">App Name</label>
                     <div class="col-sm-9">
