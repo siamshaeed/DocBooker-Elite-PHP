@@ -3,7 +3,7 @@ class Database {
     private $host       = 'localhost';
     private $username   = 'root';
     private $password   = '';
-    private $database   = 'blogging_platform';
+    private $database   = 'docbooker-elite-php';
 
     protected $conn;
 

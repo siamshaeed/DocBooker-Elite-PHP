@@ -41,37 +41,37 @@
                   <div class="form-group row mb-2">
                     <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">App Name</label>
                     <div class="col-sm-9">
-                      <input type="text" name="app_name" class="form-control" id="horizontal-firstname-input">
+                      <input type="text" name="app_name" class="form-control" placeholder="Enter App Name" id="horizontal-firstname-input">
                     </div>
                   </div>
                   <div class="form-group row mb-2">
                     <label for="horizontal-email-input" class="col-sm-3 col-form-label">Email</label>
                     <div class="col-sm-9">
-                      <input type="email" name="email" class="form-control" id="horizontal-email-input">
+                      <input type="email" name="email" class="form-control" placeholder="Enter Your Email" id="horizontal-email-input">
                     </div>
                   </div>
                   <div class="form-group row mb-2">
-                    <label for="horizontal-email-input" class="col-sm-3 col-form-label">Address</label>
+                    <label for="horizontal-address-input" class="col-sm-3 col-form-label">Address</label>
                     <div class="col-sm-9">
-                      <input type="email" name="address" class="form-control" id="horizontal-email-input">
+                      <input type="text" name="address" class="form-control" placeholder="Enter Your Address" id="horizontal-address-input">
                     </div>
                   </div>
                   <div class="form-group row mb-2">
-                    <label for="horizontal-email-input" class="col-sm-3 col-form-label">Phone</label>
+                    <label for="horizontal-phone-input" class="col-sm-3 col-form-label">Phone</label>
                     <div class="col-sm-9">
-                      <input type="email" name="phone" class="form-control" id="horizontal-email-input">
+                      <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone" id="horizontal-phone-input">
                     </div>
                   </div>
                   <div class="form-group row mb-2">
-                    <label for="horizontal-email-input" class="col-sm-3 col-form-label">Logo</label>
+                    <label for="horizontal-logo-input" class="col-sm-3 col-form-label">Logo</label>
                     <div class="col-sm-9">
-                      <input type="file" name="logo" class="form-control" id="horizontal-email-input">
+                      <input type="file" name="logo" class="form-control" id="horizontal-logo-input">
                     </div>
                   </div>
                   <div class="form-group row mb-2">
-                    <label for="horizontal-email-input" class="col-sm-3 col-form-label">Favicon</label>
+                    <label for="horizontal-favicon-input" class="col-sm-3 col-form-label">Favicon</label>
                     <div class="col-sm-9">
-                      <input type="file" name="favicon" class="form-control" id="horizontal-email-input">
+                      <input type="file" name="favicon" class="form-control" id="horizontal-favicon-input">
                     </div>
                   </div>
 
