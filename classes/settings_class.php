@@ -30,6 +30,7 @@ class Setting extends Database {
         $result = $this->conn->query($sql);
         return $result->fetch_assoc();
     }
+
 }
 
 
