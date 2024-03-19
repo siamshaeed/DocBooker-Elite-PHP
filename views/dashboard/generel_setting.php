@@ -27,51 +27,77 @@
               exit();
             }
           ?>
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="text-center">Generel Settings</h2>
-          </div>
-        </div>
 
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <h5 class="">Generel Settings</h5>
+                  </div>
+                </div>
+
                 <form action="" method="post" enctype="multipart/form-data">
-                  <div class="form-group row mb-2">
-                    <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">App Name</label>
-                    <div class="col-sm-9">
-                      <input type="text" name="app_name" class="form-control" placeholder="Enter App Name" id="horizontal-firstname-input">
+                  <div class="row">
+
+                    <div class="col-md-6">
+                      <div class="form-group row mb-2">
+                        <div class="col-sm-12">
+                          <label for="horizontal-firstname-input" class="col-form-label">App Name</label>
+                          <input type="text" name="app_name" class="form-control" placeholder="Enter App Name" id="horizontal-firstname-input">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group row mb-2">
+                        <div class="col-sm-12">
+                          <label for="horizontal-email-input" class="col-form-label">Email Address</label>
+                          <input type="email" name="email" class="form-control" placeholder="Enter Your Email" id="horizontal-email-input">
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group row mb-2">
-                    <label for="horizontal-email-input" class="col-sm-3 col-form-label">Email</label>
-                    <div class="col-sm-9">
-                      <input type="email" name="email" class="form-control" placeholder="Enter Your Email" id="horizontal-email-input">
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row mb-2">
+                        <div class="col-sm-12">
+                          <label for="horizontal-address-input" class="col-form-label">Address</label>
+                          <input type="text" name="address" class="form-control" placeholder="Enter Your Address" id="horizontal-address-input">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row mb-2">
+                        <div class="col-sm-12">
+                          <label for="horizontal-phone-input" class="col-form-label">Phone</label>
+                          <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone" id="horizontal-phone-input">
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group row mb-2">
-                    <label for="horizontal-address-input" class="col-sm-3 col-form-label">Address</label>
-                    <div class="col-sm-9">
-                      <input type="text" name="address" class="form-control" placeholder="Enter Your Address" id="horizontal-address-input">
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row mb-2">
+                        <div class="col-sm-12">
+                          <label for="horizontal-logo-input" class="col-form-label">Logo</label>
+                          <input type="file" name="logo" class="form-control" id="horizontal-logo-input">
+                          <img src="" class="mt-2" alt="Logo" width="100" height="100">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group row mb-2">
-                    <label for="horizontal-phone-input" class="col-sm-3 col-form-label">Phone</label>
-                    <div class="col-sm-9">
-                      <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone" id="horizontal-phone-input">
-                    </div>
-                  </div>
-                  <div class="form-group row mb-2">
-                    <label for="horizontal-logo-input" class="col-sm-3 col-form-label">Logo</label>
-                    <div class="col-sm-9">
-                      <input type="file" name="logo" class="form-control" id="horizontal-logo-input">
-                    </div>
-                  </div>
-                  <div class="form-group row mb-2">
-                    <label for="horizontal-favicon-input" class="col-sm-3 col-form-label">Favicon</label>
-                    <div class="col-sm-9">
-                      <input type="file" name="favicon" class="form-control" id="horizontal-favicon-input">
+                    <div class="col-md-6">
+                      <div class="form-group row mb-2">
+                        <div class="col-sm-12">
+                          <label for="horizontal-favicon-input" class="col-form-label">Favicon</label>
+                          <input type="file" name="favicon" class="form-control" id="horizontal-favicon-input">
+                          <img src="" class="mt-2" alt="Favicon" width="100" height="100">
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -80,11 +106,16 @@
                       <div class="custom-control custom-checkbox mb-4">
                         <input type="checkbox" class="custom-control-input" id="horizontal-customCheck">
                       </div>
-
-                      <div>
-                        <button type="submit" class="btn btn-primary w-md">Save</button>
-                      </div>
                     </div>
+                  </div>
+
+                  <div class="custom-control custom-switch custom-switch-md mb-4" dir="ltr">
+                    <input type="checkbox" name="status" class="custom-control-input" id="customSwitchsizesm" checked>
+                    <label class="custom-control-label" for="customSwitchsizesm">Status</label>
+                  </div>
+
+                  <div>
+                    <button type="submit" class="btn btn-primary w-md">Save</button>
                   </div>
                 </form>
 
