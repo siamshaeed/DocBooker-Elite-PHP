@@ -1,16 +1,16 @@
 <?php
 require_once '../../classes/settings_class.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['logo']))  {
-    $app_name = $_POST['app_name'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
-    $phone = $_POST['phone'];
-    $logo = $_FILES['logo'];
-    $favicon = $_FILES['favicon'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST' || isset($_FILES['logo']) || isset($_FILES['favicon']))  {
+     $app_name = htmlspecialchars($_POST['app_name']);
+     $email =  htmlspecialchars($_POST['email']);
+     $address = htmlspecialchars($_POST['address']);
+     $phone = htmlspecialchars($_POST['phone']);
+     $logo = $_FILES['logo'];
+     $favicon = $_FILES['favicon'];
 
-    $storeobj = new Setting();
-    $storeobj->store($app_name, $email, $address, $phone, $logo, $favicon);
+    $update = new Setting();
+    $update->update($app_name, $email, $address, $phone, $logo, $favicon);
 
     exit();
 }
