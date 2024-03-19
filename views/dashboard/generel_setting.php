@@ -1,7 +1,26 @@
+<?php
+require_once '../../classes/settings_class.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['logo']))  {
+    $app_name = $_POST['app_name'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $logo = $_FILES['logo'];
+    $favicon = $_FILES['favicon'];
+
+    $storeobj = new Setting();
+    $storeobj->store($app_name, $email, $address, $phone, $logo, $favicon);
+
+    exit();
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
 <?php require '../../views/partial/head_dashboard.php'?>
+
 <body data-sidebar="dark">
 
 <div id="layout-wrapper">
@@ -10,23 +29,6 @@
   <div class="main-content">
     <div class="page-content">
       <div class="container-fluid">
-          <?php
-          require_once '../../classes/settings_class.php';
-
-            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['logo']))  {
-              $app_name = $_POST['app_name'];
-              $email = $_POST['email'];
-              $address = $_POST['address'];
-              $phone = $_POST['phone'];
-              $logo = $_FILES['logo'];
-              $favicon = $_FILES['favicon'];
-
-              $storeobj = new Setting();
-              $storeobj->store($app_name, $email, $address, $phone, $logo, $favicon);
-
-              exit();
-            }
-          ?>
 
         <div class="row">
           <div class="col-lg-12">
@@ -128,7 +130,6 @@
     </div>
   </div>
   <!-- End Page-content -->
-
     <?php require '../../views/partial/footer_dashboard.php'?>
 </div>
 
