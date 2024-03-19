@@ -86,7 +86,7 @@
                         <div class="col-sm-12">
                           <label for="horizontal-logo-input" class="col-form-label">Logo</label>
                           <input type="file" name="logo" class="form-control" id="horizontal-logo-input">
-                          <img src="" class="mt-2" alt="Logo" width="100" height="100">
+                          <img src="" class="mt-2" alt="Logo" width="100" height="80">
                         </div>
                       </div>
                     </div>
@@ -95,7 +95,7 @@
                         <div class="col-sm-12">
                           <label for="horizontal-favicon-input" class="col-form-label">Favicon</label>
                           <input type="file" name="favicon" class="form-control" id="horizontal-favicon-input">
-                          <img src="" class="mt-2" alt="Favicon" width="100" height="100">
+                          <img src="" class="mt-2" alt="Favicon" width="100" height="80">
                         </div>
                       </div>
                     </div>
