@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || isset($_FILES['logo']) || isset($_FI
     $update = new Setting();
     $update->update($app_name, $email, $address, $phone, $logo, $favicon);
 
+    header('Location:../../views/dashboard/generel_setting.php');
     exit();
 }
 // Data show
