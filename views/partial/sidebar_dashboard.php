@@ -13,12 +13,12 @@
                 <li>
                     <a class="has-arrow waves-effect" href="javascript: void(0);">
                         <i class="bx bx-task"></i>
-                        <span>Tasks</span>
+                        <span>Frontend</span>
                     </a>
                     <ul aria-expanded="false" class="sub-menu">
-                        <li><a href="">Task List</a></li>
-                        <li><a href="">Kanban Board</a></li>
-                        <li><a href="">Create Task</a></li>
+                        <li><a href="../dashboard/cta.php">CTA</a></li>
+<!--                        <li><a href="">Kanban Board</a></li>-->
+<!--                        <li><a href="">Create Task</a></li>-->
                     </ul>
                 </li>
 
@@ -29,8 +29,8 @@
                     </a>
                     <ul aria-expanded="false" class="sub-menu">
                         <li><a href="../dashboard/generel_setting.php">General setting</a></li>
-                        <li><a href="">ite</a></li>
-                        <li><a href="">Create Task</a></li>
+<!--                        <li><a href=""></a></li>-->
+<!--                        <li><a href="">Create Task</a></li>-->
                     </ul>
                 </li>
 
