@@ -20,7 +20,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <h5 class="">CTA</h5>
+                    <h5 class="">CTA Create</h5>
                   </div>
                 </div>
 
@@ -77,20 +77,14 @@
                       <th scope="row">1</th>
                       <td>Mark</td>
                       <td>10</td>
-                      <td>1</td>
+                      <td>
+                        <div class="custom-control custom-switch mb-3" dir="ltr">
+                          <input type="checkbox" class="custom-control-input" id="customSwitchsizesm" checked>
+                          <label class="custom-control-label" for="customSwitchsizesm"></label>
+                        </div>
+                      </td>
                     </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>10</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>10</td>
-                      <td>1</td>
-                    </tr>
+
                     </tbody>
                   </table>
                 </div>
