@@ -7,7 +7,18 @@ if (isset($_GET['id'])) {
   $ctaobj = new Cta();
   $cta = $ctaobj->getById($id);
 
+}
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
+  $id = $_POST['id'];
+  $title = htmlspecialchars($_POST['title']);
+  $value = htmlspecialchars($_POST['value']);
+
+  $ctaobj = new Cta();
+  $ctaobj->update($id, $title, $value);
+
+  header('Location:cta.php');
+  exit();
 }
 
 ?>
@@ -43,6 +54,7 @@ if (isset($_GET['id'])) {
                     <div class="col-md-6">
                       <div class="form-group row mb-2">
                         <div class="col-sm-12">
+                          <input type="hidden" name="id" value="<?php echo $cta['id']?>">
                           <label for="horizontal-firstname-input" class="col-form-label">Title</label>
                           <input type="text" name="title" value="<?php echo $cta['title']?>" class="form-control" id="horizontal-firstname-input" required>
                         </div>

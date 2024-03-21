@@ -20,4 +20,9 @@ class Cta  extends  Database {
         $sql = "SELECT * FROM cta WHERE id = $id";
         return $this->conn->query($sql)->fetch_assoc();
     }
+
+    public function update($id, $title, $value) {
+        $sql = "UPDATE cta SET title = '$title', value = '$value' WHERE id = '$id'";
+        return $this->conn->query($sql);
+    }
 }
