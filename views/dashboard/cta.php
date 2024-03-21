@@ -1,19 +1,34 @@
 <?php
 require_once '../../classes/cta_class.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) {
-    $title = htmlspecialchars($_POST['title']);
-    $value = htmlspecialchars($_POST['value']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $ctaObj = new Cta();
-    $ctaObj->store($title, $value);
+  if (isset($_POST['delete_cta']) ){
+      $id = $_POST['id'];
 
-    header('Location:cta.php');
-    exit();
+      $ctaObj = new Cta();
+      $ctaObj->destoy($id);
+
+      header('Location:cta.php');
+      exit();
+  }
+  elseif (isset($_POST['title']) && isset($_POST['value'])) {
+      $title = htmlspecialchars($_POST['title']);
+      $value = htmlspecialchars($_POST['value']);
+
+      $ctaObj = new Cta();
+      $ctaObj->store($title, $value);
+
+      header('Location:cta.php');
+      exit();
+  }
+
 }
 
   $dataobj = new Cta(); // CTA list show
   $ctaLists = $dataobj->show();
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -103,8 +118,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) 
                         </div>
                       </td>
                       <td style="font-size: 18px">
-                        <a href=" cta_edit.php?id=<?php echo $ctaList['id'] ?>"><i title="Edit CTA" class="far fa-edit"></i></a>
-                        <a href=""><i title="Delete CTA" class="fas fa-trash-alt"></i></a></td>
+                        <div style="display: inline-block;">
+                          <!-- Edit button -->
+                          <a href="cta_edit.php?id=<?php echo $ctaList['id'] ?>" style="color: #556ee6;"><i title="Edit CTA" class="far fa-edit"></i></a>
+
+                          <!-- Delete button -->
+                          <form action="" method="post" style="display: inline;">
+                            <!-- Use hidden input field to pass id -->
+                            <input type="hidden" name="id" value="<?php echo $ctaList['id']; ?>">
+                            <!-- Submit button for deleting -->
+                            <button type="submit" name="delete_cta" style="border: none; background: none; cursor: pointer; color: #556ee6;"><i title="Delete CTA" class="fas fa-trash-alt"></i></button>
+                          </form>
+                        </div>
+                      </td>
                     </tr>
                       <?php $serial++ ?>
                     <?php endforeach; ?>

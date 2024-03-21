@@ -25,4 +25,9 @@ class Cta  extends  Database {
         $sql = "UPDATE cta SET title = '$title', value = '$value' WHERE id = '$id'";
         return $this->conn->query($sql);
     }
+
+    public function destoy($id) {
+        $sql = "DELETE FROM cta WHERE id = $id";
+        $this->conn->query($sql);
+    }
 }
