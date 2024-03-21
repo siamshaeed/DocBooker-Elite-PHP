@@ -1,4 +1,18 @@
+<?php
+require_once '../../classes/cta_class.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) {
+    $title = htmlspecialchars($_POST['title']);
+    $value = htmlspecialchars($_POST['value']);
+
+    $ctaObj = new Cta();
+    $ctaObj->store($title, $value);
+
+    header('Location:cta.php');
+    exit();
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -31,7 +45,7 @@
                       <div class="form-group row mb-2">
                         <div class="col-sm-12">
                           <label for="horizontal-firstname-input" class="col-form-label">Title</label>
-                          <input type="text" name="app_name" value="" class="form-control" id="horizontal-firstname-input">
+                          <input type="text" name="title" value="" class="form-control" id="horizontal-firstname-input" required>
                         </div>
                       </div>
                     </div>
@@ -40,7 +54,7 @@
                       <div class="form-group row mb-2">
                         <div class="col-sm-12">
                           <label for="horizontal-email-input" class="col-form-label">Value</label>
-                          <input type="number" name="email" value="" class="form-control" id="horizontal-email-input">
+                          <input type="number" name="value" value="" class="form-control" id="horizontal-email-input" required>
                         </div>
                       </div>
                     </div>
