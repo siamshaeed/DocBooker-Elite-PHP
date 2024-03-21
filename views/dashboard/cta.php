@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) 
     exit();
 }
 
+  $dataobj = new Cta(); // CTA list show
+  $ctaLists = $dataobj->show();
 ?>
 <!doctype html>
 <html lang="en">
@@ -87,10 +89,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) 
                     </tr>
                     </thead>
                     <tbody>
+                    <?php $serial = 1 ?>
+                    <?php foreach ($ctaLists as $ctaList) : ?>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>10</td>
+                      <th scope="row"><?php echo $serial ?></th>
+                      <td><?php echo $ctaList['title']?></td>
+                      <td><?php echo $ctaList['value']?></td>
                       <td>
                         <div class="custom-control custom-switch mb-3" dir="ltr">
                           <input type="checkbox" class="custom-control-input" id="customSwitchsizesm" checked>
@@ -98,7 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) 
                         </div>
                       </td>
                     </tr>
-
+                      <?php $serial++ ?>
+                    <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
