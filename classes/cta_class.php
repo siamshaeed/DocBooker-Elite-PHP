@@ -15,4 +15,9 @@ class Cta  extends  Database {
         $sql = "SELECT * FROM cta";
         return $this->conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getById($id) {
+        $sql = "SELECT * FROM cta WHERE id = $id";
+        return $this->conn->query($sql)->fetch_assoc();
+    }
 }

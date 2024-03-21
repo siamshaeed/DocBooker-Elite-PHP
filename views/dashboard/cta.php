@@ -102,7 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) 
                           <label class="custom-control-label" for="customSwitchsizesm"></label>
                         </div>
                       </td>
-                      <td style="font-size: 18px"><a href=""><i class="far fa-edit"></i></a> | <a href=""><i class="fas fa-trash-alt"></i></a></td>
+                      <td style="font-size: 18px">
+                        <a href=" cta_edit.php?id=<?php echo $ctaList['id'] ?>"><i title="Edit CTA" class="far fa-edit"></i></a>
+                        <a href=""><i title="Delete CTA" class="fas fa-trash-alt"></i></a></td>
                     </tr>
                       <?php $serial++ ?>
                     <?php endforeach; ?>
