@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) 
               <div class="card-body">
                 <h4 class="card-title">CTA List</h4>
                 <div class="table-responsive">
-                  <table class="table mb-0">
+                  <table class="table mb-0 text-center">
 
                     <thead class="thead-light">
                     <tr>
@@ -86,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) 
                       <th>Title</th>
                       <th>Value</th>
                       <th>Status</th>
+                      <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -101,6 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['title'] && $_POST['value']) 
                           <label class="custom-control-label" for="customSwitchsizesm"></label>
                         </div>
                       </td>
+                      <td style="font-size: 18px"><a href=""><i class="far fa-edit"></i></a> | <a href=""><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                       <?php $serial++ ?>
                     <?php endforeach; ?>
