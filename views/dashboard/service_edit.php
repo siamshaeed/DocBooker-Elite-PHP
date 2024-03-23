@@ -1,20 +1,13 @@
 <?php
  require '../../classes/service_class.php';
 
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $title       = htmlspecialchars($_POST['title']);
-    $description = htmlspecialchars($_POST['description']);
-    $image       = $_FILES['image'];
+  if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
     $serviceobj = new Service();
-    $serviceobj->store($title, $description, $image);
-
-    header('Location:service.php');
-    exit();
+    $service = $serviceobj->serviceById($id);
   }
 
-  $serviceobj = new Service();
-  $services = $serviceobj->show();
 ?>
 <!doctype html>
 <html lang="en">
@@ -48,7 +41,7 @@
                                             <div class="form-group row mb-2">
                                                 <div class="col-sm-12">
                                                     <label class="col-form-label">Title</label>
-                                                    <input type="text" name="title"  class="form-control">
+                                                    <input type="text" value="<?php  echo $service['title']?>" name="title"  class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -57,7 +50,7 @@
                                             <div class="form-group row mb-2">
                                                 <div class="col-sm-12">
                                                     <label class="col-form-label">Description</label>
-                                                    <input type="text" name="description" value="" class="form-control">
+                                                    <input type="text" value="<?php  echo $service['description']?>" name="description" value="" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -67,7 +60,7 @@
                                           <div class="col-sm-12">
                                             <label class="col-form-label">Image</label>
                                             <input type="file" name="image" class="form-control" >
-                                            <img src="" class="mt-2" alt="service_image" height="50" width="80">
+                                            <img src="<?php  echo $service['image']?>" class="mt-2" alt="service_image" height="50" width="80">
                                           </div>
                                         </div>
                                       </div>
@@ -89,7 +82,6 @@
     <!-- End Page-content -->
     <?php require '../../views/partial/footer_dashboard.php' ?>
 </div>
-
 <?php require '../../views/partial/script_dashboard.php' ?>
 </body>
 

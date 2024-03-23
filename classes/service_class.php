@@ -25,5 +25,10 @@ class Service extends Database {
        $sql = "SELECT * FROM services";
        return  $this->conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function serviceById($id) {
+        $sql = "SELECT * FROM services WHERE id = $id";
+        return $this->conn->query($sql)->fetch_assoc();
+    }
 }
 ?>
