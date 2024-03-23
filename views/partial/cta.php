@@ -1,38 +1,22 @@
+<?php
+$dataobj = new Cta();
+$ctaLists = $dataobj->show();
+
+?>
+
 <section class="cta-section">
     <div class="container">
         <div class="cta position-relative">
             <div class="row">
-
+              <?php foreach ($ctaLists as $ctaList) : ?>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="counter-stat">
                         <i class="icofont-doctor"></i>
-                        <span class="h3">58</span>k
-                        <p>Happy People</p>
+                        <span class="h3"><?php echo $ctaList['value'] ?></span>k
+                        <p><?php echo $ctaList['title'] ?></p>
                     </div>
                 </div>
-
-<!--                <div class="col-lg-3 col-md-6 col-sm-6">-->
-<!--                    <div class="counter-stat">-->
-<!--                        <i class="icofont-flag"></i>-->
-<!--                        <span class="h3">700</span>+-->
-<!--                        <p>Surgery Comepleted</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col-lg-3 col-md-6 col-sm-6">-->
-<!--                    <div class="counter-stat">-->
-<!--                        <i class="icofont-badge"></i>-->
-<!--                        <span class="h3">40</span>+-->
-<!--                        <p>Expert Doctors</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-lg-3 col-md-6 col-sm-6">-->
-<!--                    <div class="counter-stat">-->
-<!--                        <i class="icofont-globe"></i>-->
-<!--                        <span class="h3">20</span>-->
-<!--                        <p>Worldwide Branch</p>-->
-<!--                    </div>-->
-<!--                </div>-->
+              <?php endforeach; ?>
             </div>
         </div>
     </div>
