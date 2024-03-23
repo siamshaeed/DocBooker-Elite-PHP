@@ -17,8 +17,7 @@
                     </a>
                     <ul aria-expanded="false" class="sub-menu">
                         <li><a href="../dashboard/cta.php">CTA</a></li>
-<!--                        <li><a href="">Kanban Board</a></li>-->
-<!--                        <li><a href="">Create Task</a></li>-->
+                        <li><a href="../dashboard/service.php">Service</a></li>
                     </ul>
                 </li>
 
@@ -29,13 +28,10 @@
                     </a>
                     <ul aria-expanded="false" class="sub-menu">
                         <li><a href="../dashboard/generel_setting.php">General setting</a></li>
-<!--                        <li><a href=""></a></li>-->
-<!--                        <li><a href="">Create Task</a></li>-->
                     </ul>
                 </li>
-
             </ul>
+
         </div>
-        <!-- Sidebar -->
     </div>
 </div>

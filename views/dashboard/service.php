@@ -118,7 +118,7 @@
                                                 <td style="font-size: 18px">
                                                     <div style="display: inline-block;">
                                                         <!-- Edit button -->
-                                                        <a href="cta_edit.php?id=" style="color: #556ee6;"><i title="Edit CTA" class="far fa-edit"></i></a>
+                                                        <a href="service_edit.php?id=<?php echo $service['id']?> " style="color: #556ee6;"><i title="Edit CTA" class="far fa-edit"></i></a>
 
                                                         <!-- Delete button -->
                                                         <form action="" method="post" style="display: inline;">
