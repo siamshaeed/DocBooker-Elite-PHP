@@ -1,4 +1,5 @@
 <?php
+require 'classes/settings_class.php';
 $setting= new Setting();
 $settingData = $setting->getData();
 

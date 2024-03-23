@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <?php require 'classes/cta_class.php'; ?>
-<?php require 'classes/settings_class.php'; ?>
+
 
 <?php require 'views/partial/head.php' ?>
 
