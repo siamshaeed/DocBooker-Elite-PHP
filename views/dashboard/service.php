@@ -12,6 +12,9 @@
     header('Location:service.php');
     exit();
   }
+
+  $serviceobj = new Service();
+  $services = $serviceobj->show();
 ?>
 <!doctype html>
 <html lang="en">
@@ -98,12 +101,14 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-
+                                            <?php foreach ($services as $service) : ?>
                                             <tr>
-                                                <th scope="row"></th>
-                                                <td></td>
-                                                <td></td>
-                                                <td>Image</td>
+                                                <th scope="row">1</th>
+                                                <td><?php echo $service['title']?></td>
+                                                <td><?php echo $service['description']?></td>
+                                                <td>
+                                                  <img src="<?php echo $service['image']?>" alt="service image" height="50" width="80">
+                                                </td>
                                                 <td>
                                                     <div class="custom-control custom-switch mb-3" dir="ltr">
                                                         <input type="checkbox" class="custom-control-input" id="customSwitchsizesm" checked>
@@ -125,7 +130,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>

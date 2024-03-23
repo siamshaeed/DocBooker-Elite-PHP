@@ -3,7 +3,7 @@ require 'db_conn_class.php';
 
 class Service extends Database {
 
-    public function store($title, $description, $image){
+    public function store($title, $description, $image) {
         $title = mysqli_real_escape_string($this->conn, $title);
         $description = mysqli_real_escape_string($this->conn, $description);
 
@@ -19,6 +19,11 @@ class Service extends Database {
             return false;
         }
 
+    }
+
+    public function show() {
+       $sql = "SELECT * FROM services";
+       return  $this->conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>
