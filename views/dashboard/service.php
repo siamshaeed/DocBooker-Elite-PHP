@@ -9,6 +9,7 @@
     $serviceobj = new Service();
     $serviceobj->store($title, $description, $image);
 
+    header('Location:service.php');
     exit();
   }
 ?>
