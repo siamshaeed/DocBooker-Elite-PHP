@@ -1,34 +1,16 @@
 <?php
-require_once '../../classes/cta_class.php';
+ require '../../classes/service_class.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $title       = htmlspecialchars($_POST['title']);
+    $description = htmlspecialchars($_POST['description']);
+    $image       = $_FILES['image'];
 
-    if (isset($_POST['delete_cta']) ){
-        $id = $_POST['id'];
+    $serviceobj = new Service();
+    $serviceobj->store($title, $description, $image);
 
-        $ctaObj = new Cta();
-        $ctaObj->destoy($id);
-
-        header('Location:cta.php');
-        exit();
-    }
-    elseif (isset($_POST['title']) && isset($_POST['value'])) {
-        $title = htmlspecialchars($_POST['title']);
-        $value = htmlspecialchars($_POST['value']);
-
-        $ctaObj = new Cta();
-        $ctaObj->store($title, $value);
-
-        header('Location:cta.php');
-        exit();
-    }
-
-}
-
-$dataobj = new Cta(); // CTA list show
-$ctaLists = $dataobj->show();
-
-
+    exit();
+  }
 ?>
 <!doctype html>
 <html lang="en">
@@ -62,7 +44,7 @@ $ctaLists = $dataobj->show();
                                             <div class="form-group row mb-2">
                                                 <div class="col-sm-12">
                                                     <label class="col-form-label">Title</label>
-                                                    <input type="text" name="title" value="" class="form-control">
+                                                    <input type="text" name="title"  class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -115,12 +97,11 @@ $ctaLists = $dataobj->show();
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?php $serial = 1 ?>
-                                        <?php foreach ($ctaLists as $ctaList) : ?>
+
                                             <tr>
-                                                <th scope="row"><?php echo $serial ?></th>
-                                                <td><?php echo $ctaList['title']?></td>
-                                                <td><?php echo $ctaList['value']?></td>
+                                                <th scope="row"></th>
+                                                <td></td>
+                                                <td></td>
                                                 <td>Image</td>
                                                 <td>
                                                     <div class="custom-control custom-switch mb-3" dir="ltr">
@@ -131,20 +112,19 @@ $ctaLists = $dataobj->show();
                                                 <td style="font-size: 18px">
                                                     <div style="display: inline-block;">
                                                         <!-- Edit button -->
-                                                        <a href="cta_edit.php?id=<?php echo $ctaList['id'] ?>" style="color: #556ee6;"><i title="Edit CTA" class="far fa-edit"></i></a>
+                                                        <a href="cta_edit.php?id=" style="color: #556ee6;"><i title="Edit CTA" class="far fa-edit"></i></a>
 
                                                         <!-- Delete button -->
                                                         <form action="" method="post" style="display: inline;">
                                                             <!-- Use hidden input field to pass id -->
-                                                            <input type="hidden" name="id" value="<?php echo $ctaList['id']; ?>">
+                                                            <input type="hidden" name="id" value="">
                                                             <!-- Submit button for deleting -->
                                                             <button type="submit" name="delete_cta" style="border: none; background: none; cursor: pointer; color: #556ee6;"><i title="Delete CTA" class="fas fa-trash-alt"></i></button>
                                                         </form>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php $serial++ ?>
-                                        <?php endforeach; ?>
+
                                         </tbody>
                                     </table>
                                 </div>
