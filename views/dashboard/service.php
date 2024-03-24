@@ -110,10 +110,11 @@
                                             <th>Action</th>
                                         </tr>
                                         </thead>
+                                        <?php $serial = 1 ?>
                                         <tbody>
                                             <?php foreach ($services as $service) : ?>
                                             <tr>
-                                                <th scope="row">1</th>
+                                                <td scope="row"><?php echo $serial ?></td>
                                                 <td><?php echo $service['title']?></td>
                                                 <td><?php echo $service['description']?></td>
                                                 <td>
@@ -140,6 +141,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                                <?php $serial++ ?>
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
