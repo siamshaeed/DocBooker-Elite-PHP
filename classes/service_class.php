@@ -49,5 +49,10 @@ class Service extends Database {
 
     }
 
+    public function drop($id) {
+        $sql = "DELETE FROM services WHERE id=$id";
+        return $this->conn->query($sql);
+    }
+
 }
 ?>

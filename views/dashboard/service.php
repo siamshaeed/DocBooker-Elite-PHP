@@ -2,15 +2,25 @@
  require '../../classes/service_class.php';
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $title       = htmlspecialchars($_POST['title']);
-    $description = htmlspecialchars($_POST['description']);
-    $image       = $_FILES['image'];
 
-    $serviceobj = new Service();
-    $serviceobj->store($title, $description, $image);
+    if (isset($_POST['delete_service'])) {
+      $id = $_POST['id'];
 
-    header('Location:service.php');
-    exit();
+      $serviceobj = new Service();
+      $serviceobj->drop($id);
+    }
+    elseif ($_POST['title'] && $_POST['description']) {
+        $title       = htmlspecialchars($_POST['title']);
+        $description = htmlspecialchars($_POST['description']);
+        $image       = $_FILES['image'];
+
+        $serviceobj = new Service();
+        $serviceobj->store($title, $description, $image);
+
+        header('Location:service.php');
+        exit();
+    }
+
   }
 
   $serviceobj = new Service();
@@ -123,9 +133,9 @@
                                                         <!-- Delete button -->
                                                         <form action="" method="post" style="display: inline;">
                                                             <!-- Use hidden input field to pass id -->
-                                                            <input type="hidden" name="id" value="">
+                                                            <input type="hidden" name="id" value="<?php echo $service['id']?>">
                                                             <!-- Submit button for deleting -->
-                                                            <button type="submit" name="delete_cta" style="border: none; background: none; cursor: pointer; color: #556ee6;"><i title="Delete CTA" class="fas fa-trash-alt"></i></button>
+                                                            <button type="submit" name="delete_service" style="border: none; background: none; cursor: pointer; color: #556ee6;"><i title="Delete CTA" class="fas fa-trash-alt"></i></button>
                                                         </form>
                                                     </div>
                                                 </td>
