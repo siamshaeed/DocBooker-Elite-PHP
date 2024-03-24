@@ -1,7 +1,7 @@
 <?php
+require_once 'classes/cta_class.php';
 $dataobj = new Cta();
 $ctaLists = $dataobj->show();
-
 ?>
 
 <section class="cta-section">

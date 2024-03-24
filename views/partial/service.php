@@ -1,3 +1,9 @@
+<?php
+require_once 'classes/service_class.php';
+$serviceobj = new Service();
+$services = $serviceobj->show();
+?>
+
 <section class="section service gray-bg">
     <div class="container">
         <div class="row justify-content-center">
@@ -11,18 +17,21 @@
         </div>
 
         <div class="row">
+
+          <?php  foreach ($services as $service) : ?>
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="service-item mb-4">
                     <div class="icon d-flex align-items-center">
                         <i class="icofont-laboratory text-lg"></i>
-                        <h4 class="mt-3 mb-3">Laboratory services</h4>
+                        <h4 class="mt-3 mb-3"><?php echo $service['title']?></h4>
                     </div>
 
                     <div class="content">
-                        <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+                        <p class="mb-4"><?php echo $service['description']?></p>
                     </div>
                 </div>
             </div>
+          <?php endforeach; ?>
 
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="service-item mb-4">

@@ -1,5 +1,5 @@
 <?php
-require 'db_conn_class.php';
+require_once 'db_conn_class.php';
 
 class Service extends Database {
 
