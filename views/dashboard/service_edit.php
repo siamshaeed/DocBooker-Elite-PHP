@@ -8,6 +8,18 @@
     $service = $serviceobj->serviceById($id);
   }
 
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id           = htmlspecialchars($_POST['id']);
+    $title        = htmlspecialchars($_POST['title']);
+    $description  = htmlspecialchars($_POST['description']);
+
+    $serviceobj = new  Service();
+    $serviceobj->update($id, $title, $description);
+
+    header('Location:service.php');
+    exit();
+  }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,6 +50,7 @@
                                     <div class="row">
 
                                         <div class="col-md-4">
+                                          <input type="hidden" name="id" value="<?php  echo $service['id']?>">
                                             <div class="form-group row mb-2">
                                                 <div class="col-sm-12">
                                                     <label class="col-form-label">Title</label>

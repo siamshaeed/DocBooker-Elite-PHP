@@ -30,5 +30,24 @@ class Service extends Database {
         $sql = "SELECT * FROM services WHERE id = $id";
         return $this->conn->query($sql)->fetch_assoc();
     }
+
+    public function update($id, $title, $description) {
+        $title      = mysqli_real_escape_string($this->conn, $title);
+        $description= mysqli_real_escape_string($this->conn, $description);
+
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $image_path = '../../assets/uploads/' . basename($_FILES['image']['name']);
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
+                $sql = "UPDATE services SET title='$title', description='$description', image ='$image_path' ";
+                return $this->conn->query($sql);
+            } else {
+                return false;
+            }
+        } else {
+           return false;
+        }
+
+    }
+
 }
 ?>
